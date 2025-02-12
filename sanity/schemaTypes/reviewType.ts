@@ -1,4 +1,3 @@
-import { init } from "next/dist/compiled/webpack/webpack";
 import { defineField, defineType } from "sanity";
 
 export const reviewType = defineType({

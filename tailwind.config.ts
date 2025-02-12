@@ -10,10 +10,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "red": "#C8373E",
-        "blue": "#232E42",
-        "grey": "#5A5555",
-        "white" : "#FFFFFF",
+        red: "#C8373E",
+        blue: "#232E42",
+        grey: "#5A5555",
+        white: "#FFFFFF",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -58,6 +58,8 @@ export default {
       screens: {
         sm: "425px",
         md: "768px",
+        lg: "1024px",
+        xl: "1440px",
       },
       borderRadius: {
         lg: "var(--radius)",

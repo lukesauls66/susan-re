@@ -1,4 +1,5 @@
-import { defineField, defineType } from 'sanity'
+import { init } from "next/dist/compiled/webpack/webpack";
+import { defineField, defineType } from "sanity";
 
 export const reviewType = defineType({
   name: "review",
@@ -7,32 +8,45 @@ export const reviewType = defineType({
   fields: [
     defineField({
       name: "isVerified",
-      type: "boolean"
+      type: "boolean",
+      initialValue: false,
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "firstName",
-      type: "string"
+      type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "lastName",
-      type: "string"
+      type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "clientImage",
-      type: "image"
+      type: "image",
     }),
     defineField({
       name: "homeImage",
-      type: "image"
+      type: "image",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "date",
-      type: "datetime"
+      type: "datetime",
+      initialValue: () => new Date().toISOString(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "description",
       type: "array",
-      of: [{type: "block"}]
+      of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
-  ]
-})
+    defineField({
+      name: "address",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+});

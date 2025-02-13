@@ -3,32 +3,20 @@ import Hamburger from "./Hamburger";
 
 const NavBar = () => {
   return (
-    <div className="flex justify-between items-center py-4 pl-4 pr-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
-      <div className="flex items-center gap-4">
+    <div className="flex justify-between items-center py-4 px-4 sm:px-8 md:px-10 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="flex items-center gap-8">
         <Link href="/" className="flex items-center">
           <img
             src="/images/azwarriorlogo.png"
             alt="AZ Warrior logo"
-            className="h-[3.5rem]"
+            className="h-[3.5rem] w-[7rem] sm:h-[4.5rem] sm:w-[9rem] md:h-[5.5rem] md:w-[10rem] lg:h-[7rem] lg:w-[13rem] xl:h-[7.5rem] xl:w-[15rem] 2xl:h-[8.5rem] 2xl:w-[17rem]"
           />
         </Link>
-        <div className="hidden md:flex md:flex-col md:gap-2">
-          <div className="flex gap-2">
-            <img
-              src="/images/KWIFLogo.jpg"
-              alt="Keller Williams Integrity First Reality"
-              className="h-[2.5rem] w-[4rem]"
-            />
-            <img
-              src="/images/triplelogo.jpeg"
-              alt="Realtor, MLS, and Equal Housing Opportunity logo"
-              className="h-[2.5rem] w-[4rem]"
-            />
-          </div>
-          <p className="text-[.5rem]">
-            Each office is independently owned and operated
-          </p>
-        </div>
+        <img
+          src="/images/Logo2.svg"
+          alt="Keller Williams Integrity First Realty with logo"
+          className="hidden md:block md:w-[14rem] md:mt-5 lg:w-[17rem] lg:mt-7"
+        />
       </div>
       <div>
         <Hamburger />

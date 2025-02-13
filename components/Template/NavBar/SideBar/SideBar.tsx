@@ -13,7 +13,7 @@ const SideBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <div>
       <div
-        className={`fixed top-0 right-0 h-full bg-[#5A5555] text-[#C8373E] text-lg sm:text-2xl xl:text-3xl font-bold transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full bg-grey text-lg sm:text-2xl xl:text-3xl font-bold transition-transform duration-300 ${
           isOpen ? "transform translate-x-0" : "transform translate-x-full"
         } w-[11rem] md:w-[280px] py-4 px-2 z-40`}
       ></div>

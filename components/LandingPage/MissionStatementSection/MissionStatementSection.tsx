@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import MissionHeader from "./Components/MissionHeader";
 import ReadMoreButton from "./Components/ReadMoreButton";
+import { getReviews } from "@/sanity/sanity-utils";
 
-const MissionStatementSection = () => {
+const MissionStatementSection = async () => {
+  const reviews = await getReviews();
+  console.log(reviews);
   return (
     <section className="md:flex gap-4 w-full items-center p-4">
       <div className="hidden md:block w-1/2 h-full">

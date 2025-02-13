@@ -4,7 +4,7 @@ import React from "react";
 const MissionHeader = () => {
   return (
     <div>
-      <div className="hidden md:block mb-4 w-[40%]">
+      <div className="hidden md:block mb-4 w-[85%]">
         <p className="text-red">About AZ Warrior Real Estate</p>
         <div className="border-b-2 w-full border-blue" />
       </div>

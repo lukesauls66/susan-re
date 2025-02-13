@@ -8,7 +8,15 @@ export async function getReviews() {
   const reviews = await client.fetch<SanityDocument[]>(
     REVIEW_QUERY,
     {},
-    options,
+    options
   );
   return reviews;
+}
+
+export async function getBlogs() {
+  const options = { next: { revalidate: 30 } };
+
+  const BLOG_QUERY = `*[_type == "blog"]{title, image, description, date}`;
+  const blogs = await client.fetch<SanityDocument[]>(BLOG_QUERY, {}, options);
+  return blogs;
 }

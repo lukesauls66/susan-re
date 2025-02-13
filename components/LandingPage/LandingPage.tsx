@@ -2,8 +2,12 @@ import ReviewsSection from "./ReviewsSection";
 import BlogSection from "./BlogSection";
 import MissionStatementSection from "./MissionStatementSection";
 import { Button } from "../ui/button";
+import { getBlogs } from "@/sanity/sanity-utils";
 
-const LandingPage = () => {
+const LandingPage = async () => {
+  const blogs = await getBlogs();
+  console.log(blogs);
+
   return (
     <>
       <div className="relative w-screen">

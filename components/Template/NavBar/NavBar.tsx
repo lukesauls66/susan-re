@@ -9,7 +9,7 @@ const NavBar = () => {
           <img
             src="/images/azwarriorlogo.png"
             alt="AZ Warrior logo"
-            className="h-[3.5rem] w-[7rem] sm:h-[4.5rem] sm:w-[9rem] md:h-[5.5rem] md:w-[10rem] lg:h-[7rem] lg:w-[13rem] xl:h-[7.5rem] xl:w-[15rem] 2xl:h-[8.5rem] 2xl:w-[17rem]"
+            className="h-[3.5rem] w-[7rem] sm:h-[4.5rem] sm:w-[9rem] md:h-[5.5rem] md:w-[10rem] lg:h-[7rem] lg:w-[13rem] xl:h-[8.5rem] xl:w-[16rem]"
           />
         </Link>
         <img

@@ -14,7 +14,7 @@ const MissionStatementSection = () => {
       </div>
       <div className="w-full md:w-[40%] flex flex-col justify-center items-center md:items-start gap-6">
         <MissionHeader />
-        <p className="text-center md:text-start">
+        <p className="text-start">
           OUR MISSION IS TO FIERCELY PROTECT YOUR REAL ESTATE GOALS WITH EXPERT
           GUIDANCE, INTEGRITY, AND A RELENTLESS COMMITMENT TO YOUR
           SUCCESS—MAKING EVERY STEP IN ARIZONA REAL ESTATE SEAMLESS, SECURE, AND

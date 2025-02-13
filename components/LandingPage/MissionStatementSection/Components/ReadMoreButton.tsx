@@ -4,7 +4,7 @@ import React from "react";
 
 const ReadMoreButton = () => {
   return (
-    <div className="flex justify-between align-center w-full">
+    <div className="flex justify-center md:justify-between align-center w-full">
       <Button>
         <p>Read More</p>
       </Button>

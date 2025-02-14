@@ -1,5 +1,13 @@
-const ReviewsSection = () => {
-  return <h1>Reviews Section</h1>;
+import CarouselBody from "./components/CarouselBody";
+import ReviewsTitle from "./components/ReviewsTitle";
+
+const ReviewsSection = async () => {
+  return (
+    <section className="bg-grey">
+      <ReviewsTitle />
+      <CarouselBody />
+    </section>
+  );
 };
 
 export default ReviewsSection;

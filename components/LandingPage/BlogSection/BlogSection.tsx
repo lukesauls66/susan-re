@@ -16,23 +16,28 @@ const BlogSection = async () => {
   console.log(lastThreeBlogs);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-[3rem] py-4">
+    <div className="flex flex-col items-center justify-center gap-[3rem] py-4 px-8">
       <h3 className="text-red text-xl font-medium underline underline-offset-[.5rem]">
         Blog
       </h3>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-6 lg:gap-10 xl:gap-12">
         {lastThreeBlogs.map((blog, index) => (
-          <div key={blog.id || index} className="flex flex-col gap-4 w-[16rem]">
-            <div className="w-64 h-[10rem]">
+          <div
+            key={blog.id || index}
+            className="flex flex-col gap-4 w-full max-w-[19rem] items-center"
+          >
+            <div className="w-full h-auto rounded-md">
               <img
                 src={urlFor(blog.image).url()}
                 alt={blog.title}
-                className="object-cover w-full h-full"
+                className="object-fit w-full h-full rounded-md"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <h4 className="text-blue">{blog.title}</h4>
-              <p className="text-grey">{blog.description}</p>
+            <div className="flex flex-col gap-2 items-start w-full">
+              <h4 className="text-blue font-semibold lg:text-lg">
+                {blog.title}
+              </h4>
+              <p className="text-grey lg:text-lg">{blog.description}</p>
             </div>
           </div>
         ))}

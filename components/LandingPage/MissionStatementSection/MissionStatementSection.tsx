@@ -4,7 +4,7 @@ import ReadMoreButton from "./Components/ReadMoreButton";
 
 const MissionStatementSection = async () => {
   return (
-    <section className="md:flex gap-4 w-full items-center p-4">
+    <section className="md:flex gap-4 w-full items-center p-4 min-h-[40rem]">
       <div className="hidden md:block w-1/2 h-full">
         <img
           className="object-cover"

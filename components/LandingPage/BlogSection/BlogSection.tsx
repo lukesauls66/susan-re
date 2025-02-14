@@ -26,11 +26,11 @@ const BlogSection = async () => {
             key={blog.id || index}
             className="flex flex-col gap-4 w-full max-w-[19rem] items-center"
           >
-            <div className="w-full h-auto rounded-md">
+            <div className="w-full rounded-md h-[200px]">
               <img
                 src={urlFor(blog.image).url()}
                 alt={blog.title}
-                className="object-fit w-full h-full rounded-md"
+                className="object-cover w-full h-full rounded-md"
               />
             </div>
             <div className="flex flex-col gap-2 items-start w-full">

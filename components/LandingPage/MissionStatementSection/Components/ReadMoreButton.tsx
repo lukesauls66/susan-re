@@ -1,4 +1,4 @@
-import OwnerPfp from "@/components/AssetComponents/OwnerPfp";
+import Pfp from "@/components/AssetComponents/Pfp";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
@@ -9,7 +9,7 @@ const ReadMoreButton = () => {
         <p>Read More</p>
       </Button>
       <div className="hidden md:block">
-        <OwnerPfp />
+        <Pfp imgSrc="/images/assets/susan_pfp.png" />
       </div>
     </div>
   );

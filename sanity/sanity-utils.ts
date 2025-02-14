@@ -1,15 +1,40 @@
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 
-export async function getReviews() {
+interface SanityImage {
+  _type: "image";
+  asset: {
+    _type: "reference";
+    _ref: string;
+  };
+}
+
+export interface Review {
+  lastName: string;
+  clientImage: SanityImage | null;
+  homeImage: SanityImage;
+  date: string;
+  description: string;
+  rating: number | null;
+  isVerified: boolean;
+  firstName: string;
+}
+
+export async function getReviews(): Promise<Review[]> {
   const options = { next: { revalidate: 30 } };
 
-  const REVIEW_QUERY = `*[_type == "review"]{firstName, lastName, clientImage, homeImage, date, description, rating, isVerified}`;
-  const reviews = await client.fetch<SanityDocument[]>(
-    REVIEW_QUERY,
-    {},
-    options
-  );
+  const REVIEW_QUERY = `*[_type == "review"]{
+    firstName, 
+    lastName, 
+    clientImage, 
+    homeImage, 
+    date, 
+    description,
+    rating, 
+    isVerified
+  }`;
+
+  const reviews = await client.fetch(REVIEW_QUERY, {}, options);
   return reviews;
 }
 

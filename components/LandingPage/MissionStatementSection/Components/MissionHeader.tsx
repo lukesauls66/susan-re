@@ -1,4 +1,4 @@
-import OwnerPfp from "@/components/AssetComponents/OwnerPfp";
+import Pfp from "@/components/AssetComponents/Pfp";
 import React from "react";
 
 const MissionHeader = () => {
@@ -13,7 +13,7 @@ const MissionHeader = () => {
           <div className="border-b-2 w-full border-blue" />
         </div>
         <div className="md:hidden">
-          <OwnerPfp />
+          <Pfp imgSrc="/images/assets/susan_pfp.png" />
         </div>
       </div>
     </div>

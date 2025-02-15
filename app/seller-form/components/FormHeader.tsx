@@ -9,18 +9,14 @@ const FormHeader = () => {
           Let&apos;s Find Your Dream Home
         </h2>
         <div className="flex w-full justify-between items-center">
-          <div className="border-b-[.1rem] border-b-solid border-blue flex-1" />
+          <div className="border-b-[.1rem] border-b-solid border-white flex-1" />
           <Pfp
             imgSrc="/images/assets/susan_pfp.png"
             className="mx-4 w-[5rem] h-[5rem]"
           />
-          <div className="border-b-[.1rem] border-b-solid border-blue flex-1" />
+          <div className="border-b-[.1rem] border-b-solid border-white flex-1" />
         </div>
       </div>
-      <p className="text-lg font-semibold">
-        I&apos;ll guide you through our home buyers&apos; request form.
-        Let&apos;s start with your current living situation...
-      </p>
     </div>
   );
 };

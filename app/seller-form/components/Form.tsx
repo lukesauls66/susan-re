@@ -1,46 +1,45 @@
 "use client";
 import React, { useState } from "react";
 import CurrentLiving from "./formComponents/CurrentLiving";
+import TimeFrameInput from "./formComponents/TimeFrameInput";
 
 const Form = () => {
   const [formIndex, setFormIndex] = useState(0);
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   address: "",
-  //   city: "",
-  //   state: "",
-  //   zip: "",
-  //   price: "",
-  //   beds: "",
-  //   baths: "",
-  //   sqft: "",
-  //   lotSize: "",
-  //   yearBuilt: "",
-  //   hoa: "",
-  //   propertyType: "",
-  //   parking: "",
-  //   heating: "",
-  //   cooling: "",
-  //   description: "",
-  //   photos: [],
-  // });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    price: "",
+    beds: "",
+    baths: "",
+    sqft: "",
+    lotSize: "",
+    yearBuilt: "",
+    hoa: "",
+    propertyType: "",
+    parking: "",
+    heating: "",
+    cooling: "",
+    description: "",
+    photos: [],
+  });
+
+  console.log(formData);
   const inputDisplay = () => {
     switch (formIndex) {
       case 0:
-        return <CurrentLiving />;
-      case 1:
         return (
-          <div>
-            <h2>Step 2</h2>
-            <input type="text" placeholder="Address" />
-            <input type="text" placeholder="City" />
-            <input type="text" placeholder="State" />
-            <input type="text" placeholder="Zip" />
-            <button onClick={() => setFormIndex(2)}>Next</button>
-          </div>
+          <CurrentLiving
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
         );
+      case 1:
+        return <TimeFrameInput />;
       case 2:
         return (
           <div>

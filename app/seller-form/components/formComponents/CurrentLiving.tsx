@@ -3,30 +3,12 @@ import HomeSvg from "@/public/formAssets/HomeSvg";
 import KeySvg from "@/public/formAssets/KeySvg";
 import AptSvg from "@/public/formAssets/AptSvg";
 import OtherSvg from "@/public/formAssets/OtherSvg";
+import Title from "./sharedComponents/Title";
 
 type Props = {
   setFormData: React.Dispatch<
     React.SetStateAction<{
-      name: string;
-      email: string;
-      phone: string;
-      address: string;
-      city: string;
-      state: string;
-      zip: string;
-      price: string;
-      beds: string;
-      baths: string;
-      sqft: string;
-      lotSize: string;
-      yearBuilt: string;
-      hoa: string;
       propertyType: string;
-      parking: string;
-      heating: string;
-      cooling: string;
-      description: string;
-      photos: never[];
     }>
   >;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -39,10 +21,11 @@ function CurrentLiving({ setFormData, setFormIndex }: Props) {
   }
   return (
     <>
-      <p className="text-lg font-semibold mb-4 text-center">
+      <Title>
         I&apos;ll guide you through our home buyers&apos; request form.
         Let&apos;s start with your current living situation
-      </p>
+      </Title>
+
       <div className="grid grid-cols-2 gap-4 justify-stretch text-black">
         <button
           type="button"

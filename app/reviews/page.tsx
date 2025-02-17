@@ -1,3 +1,5 @@
+import ReviewsPage from "@/components/ReviewsPage";
+
 export default function Reviews() {
-  return <div>Reviews</div>;
+  return <ReviewsPage />;
 }

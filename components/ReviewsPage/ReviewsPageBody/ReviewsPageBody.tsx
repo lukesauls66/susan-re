@@ -58,15 +58,15 @@ const ReviewsPageBody = () => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-4">
-      {displayedReviews.map((review) => {
+    <div className="w-full flex flex-col items-center gap-4">
+      {displayedReviews.map((review, index) => {
         const imageSrc = review.clientImage
           ? urlFor(review.clientImage).url()
           : "";
 
         return (
           <div
-            className="bg-gray-200 rounded-md p-2"
+            className={`bg-gray-200 rounded-md p-2 max-w-[35rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
             key={review.firstName + review.lastName}
           >
             <div className="flex items-center justify-between">
@@ -90,7 +90,7 @@ const ReviewsPageBody = () => {
           </div>
         );
       })}
-      <div className="flex justify-between mt-4">
+      <div className="flex justify-between w-full mt-4">
         <button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}

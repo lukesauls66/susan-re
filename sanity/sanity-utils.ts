@@ -23,7 +23,7 @@ export interface Review {
 export async function getReviews(): Promise<Review[]> {
   const options = { next: { revalidate: 30 } };
 
-  const REVIEW_QUERY = `*[_type == "review"]{
+  const REVIEW_QUERY = `*[_type == "review"] | order(date desc){
     firstName, 
     lastName, 
     clientImage, 

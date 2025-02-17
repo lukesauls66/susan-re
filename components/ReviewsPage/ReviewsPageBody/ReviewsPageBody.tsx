@@ -58,7 +58,7 @@ const ReviewsPageBody = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-4">
+    <div className="w-full flex flex-col items-center gap-4 md:gap-6 lg:gap-8 xl:gap-12">
       {displayedReviews.map((review, index) => {
         const imageSrc = review.clientImage
           ? urlFor(review.clientImage).url()
@@ -66,20 +66,21 @@ const ReviewsPageBody = () => {
 
         return (
           <div
-            className={`bg-gray-200 rounded-md p-2 max-w-[35rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
+            className={`bg-gray-200 rounded-md p-2 md:p-4 xl:p-6 max-w-[40rem] lg:max-w-[75rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
             key={review.firstName + review.lastName}
           >
             <div className="flex items-center justify-between">
-              <h3>
+              <h3 className="md:text-lg lg:text-xl xl:text-2xl">
                 {review.firstName} {review.lastName}
               </h3>
-              <Pfp className="w-[1.5rem] h-[1.5rem]" imgSrc={imageSrc} />
+              <Pfp className="size-[1.5rem] lg:size-[2rem]" imgSrc={imageSrc} />
             </div>
-            <div className="flex flex-col gap-2">
-              <div className="text-grey">
-                <p>{review.description}</p>
+            <br />
+            <div className="flex flex-col lg:flex-row gap-2 md:gap-4 lg:gap-6 xl:gap-8">
+              <div className="text-grey w-full">
+                <p className="lg:text-lg xl:text-xl">{review.description}</p>
               </div>
-              <div className="h-[200px] w-full">
+              <div className="h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] w-full">
                 <img
                   src={urlFor(review.homeImage).url()}
                   alt={review.firstName}

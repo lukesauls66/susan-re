@@ -5,7 +5,7 @@ type Props = {
 };
 function Title({ children }: Props) {
   return (
-    <h2 className="text-[2rem] font-semibold mb-4 text-center">{children}</h2>
+    <h2 className="text-[1.4rem] font-semibold mb-4 text-center">{children}</h2>
   );
 }
 

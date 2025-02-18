@@ -1,3 +1,4 @@
+import Title from "@/components/FormComponents/sharedComponents/Title";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
@@ -20,23 +21,28 @@ const SquareMetersInput = (props: Props) => {
     "over 2000 sqm",
   ];
   return (
-    <div className="flex flex-col gap-4 w-[80%]">
-      {options.map((option) => (
-        <Button
-          key={option}
-          variant="formButton"
-          onClick={() => {
-            setFormData((prev) => ({ ...prev, squareMeters: option }));
-            setFormIndex(2);
-          }}
-          className="p-4 h-[5rem] w-full bg-white text-black text-[1.3rem] hover:text-white"
-        >
-          <label className="cursor-pointer" htmlFor={option}>
-            {option}
-          </label>
-        </Button>
-      ))}
-    </div>
+    <>
+      <Title>
+        What&apos;s the total size of the property that belongs to your house?
+      </Title>
+      <div className="flex flex-col gap-4 w-[80%]">
+        {options.map((option) => (
+          <Button
+            key={option}
+            variant="formButton"
+            onClick={() => {
+              setFormData((prev) => ({ ...prev, squareMeters: option }));
+              setFormIndex(2);
+            }}
+            className="p-4 h-[5rem] w-full bg-white text-black text-[1.3rem] hover:text-white"
+          >
+            <label className="cursor-pointer" htmlFor={option}>
+              {option}
+            </label>
+          </Button>
+        ))}
+      </div>
+    </>
   );
 };
 

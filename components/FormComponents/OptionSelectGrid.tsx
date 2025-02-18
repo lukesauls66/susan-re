@@ -6,11 +6,14 @@ type Props = {
     icon: React.ReactNode;
   }[];
   onClickHandler: (option: string) => void;
+  display?: string;
 };
 
-function OptionSelectGrid({ options, onClickHandler }: Props) {
+function OptionSelectGrid({ options, onClickHandler, display }: Props) {
   return (
-    <div className="grid grid-cols-2 gap-4 justify-stretch text-black">
+    <div
+      className={`${display ? "flex" : "grid grid-cols-2"} gap-4 justify-stretch text-black`}
+    >
       {options.map((option) => (
         <button
           key={option.label}

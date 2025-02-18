@@ -24,7 +24,7 @@ const ZipCodeInput = ({ setFormData, setFormIndex }: Props) => {
     <>
       <Title>What area do you want to live in?</Title>
       <ZipCodeComp handleZipChange={handleZipChange} />
-      <ContinueButton onClick={() => setFormIndex(3)} />
+      <ContinueButton onClick={() => setFormIndex(5)} />
     </>
   );
 };

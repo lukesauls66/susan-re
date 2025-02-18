@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../../../../components/FormComponents/sharedComponents/Title";
+import Title from "./sharedComponents/Title";
 import Link from "next/link";
 
 const ThankYouDisplay = () => {

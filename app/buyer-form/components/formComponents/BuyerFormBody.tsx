@@ -2,6 +2,11 @@
 import React, { useState } from "react";
 import BuyerHomeSelection from "./BuyerHomeSelection";
 import SquareMetersInput from "./SquareMetersInput";
+import IndoorSizeArea from "./IndoorSizeArea";
+import HouseCondition from "./HouseCondition";
+import BuyerZipCodeInput from "./BuyerZipCodeInput";
+import BuyerConsentForm from "./BuyerConsentForm";
+import ThankYouDisplay from "@/components/FormComponents/ThankYouDisplay";
 
 const BuyerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
@@ -9,7 +14,7 @@ const BuyerFormBody = () => {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(formData);
-    setFormIndex(7);
+    setFormIndex(6);
   }
   const inputDisplay = () => {
     switch (formIndex) {
@@ -28,17 +33,35 @@ const BuyerFormBody = () => {
           />
         );
       case 2:
-        return <></>;
+        return (
+          <IndoorSizeArea
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
+        );
       case 3:
-        return <></>;
+        return (
+          <HouseCondition
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
+        );
       case 4:
-        return <></>;
+        return (
+          <BuyerZipCodeInput
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
+        );
       case 5:
-        return <></>;
+        return (
+          <BuyerConsentForm
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
+        );
       case 6:
-        <></>;
-      case 7:
-        <></>;
+        return <ThankYouDisplay />;
     }
   };
   return (

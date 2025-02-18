@@ -7,7 +7,7 @@ import RoomsInput from "./formComponents/RoomsInput";
 import PrioritiesInput from "./formComponents/PrioritiesInput";
 import NameInput from "./formComponents/NameInput";
 import ConsentForm from "./formComponents/ConsentForm";
-import ThankYouDisplay from "./formComponents/ThankYouDisplay";
+import ThankYouDisplay from "../../../components/FormComponents/ThankYouDisplay";
 
 const Form = () => {
   const [formIndex, setFormIndex] = useState(0);

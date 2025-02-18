@@ -41,7 +41,7 @@ export async function getReviews(): Promise<Review[]> {
 export async function getBlogs() {
   const options = { next: { revalidate: 30 } };
 
-  const BLOG_QUERY = `*[_type == "blog"]{title, image, description, date}`;
+  const BLOG_QUERY = `*[_type == "blog"] | order(date desc){title, image, description, date}`;
   const blogs = await client.fetch<SanityDocument[]>(BLOG_QUERY, {}, options);
   return blogs;
 }

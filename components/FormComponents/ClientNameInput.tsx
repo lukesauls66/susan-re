@@ -9,7 +9,6 @@ export const ClientNameInput = (props: Props) => {
   const { handleInputChange } = props;
   return (
     <div>
-      {" "}
       <div className="flex gap-3 items-center justify-between">
         <Input
           type="text"

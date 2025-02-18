@@ -29,7 +29,9 @@ function TimeFrameInput({ setFormData, setFormIndex }: Props) {
       <SliderOption
         onChangeHandler={onChangeHandler}
         inputValue={inputValue}
-        maxString="12 Months"
+        max={12}
+        metric="months"
+        increment={1}
       />
       <ContinueButton onClick={() => setFormIndex(2)} />
     </>

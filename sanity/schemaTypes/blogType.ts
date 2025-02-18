@@ -6,6 +6,11 @@ export const blogType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "id",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "title",
       type: "string",
       validation: (Rule) => Rule.required(),
@@ -17,13 +22,7 @@ export const blogType = defineType({
     }),
     defineField({
       name: "description",
-      type: "array",
-      of: [{ type: "block" }],
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "address",
-      type: "string",
+      type: "text",
       validation: (Rule) => Rule.required(),
     }),
     defineField({

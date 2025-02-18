@@ -38,14 +38,13 @@ export const reviewType = defineType({
     }),
     defineField({
       name: "description",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "text",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "address",
-      type: "string",
-      validation: (Rule) => Rule.required(),
+      name: "rating",
+      type: "number",
+      validation: (Rule) => Rule.required().max(5).min(1),
     }),
   ],
 });

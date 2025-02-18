@@ -63,6 +63,14 @@ body {
   }
 }
 
+input[type="checkbox"]:focus {
+  outline: 2px solid #c8373e;
+}
+
+input[type="checkbox"]:hover:not(:checked) {
+  border-color: #c8373e;
+}
+
 @layer base {
   * {
     @apply border-border;

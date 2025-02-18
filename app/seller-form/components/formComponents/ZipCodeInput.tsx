@@ -1,8 +1,7 @@
-import { Input } from "@/components/ui/input";
 import React, { ChangeEvent } from "react";
-import { HiLocationMarker } from "react-icons/hi";
-import Title from "./sharedComponents/Title";
-import ContinueButton from "./sharedComponents/ContinueButton";
+import Title from "../../../../components/FormComponents/sharedComponents/Title";
+import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
+import ZipCodeComp from "@/components/FormComponents/ZipCodeComp";
 
 type Props = {
   setFormData: React.Dispatch<
@@ -24,21 +23,7 @@ const ZipCodeInput = ({ setFormData, setFormIndex }: Props) => {
   return (
     <>
       <Title>What area do you want to live in?</Title>
-      <div className="relative bg-white rounded-md border border-gray-300 w-full">
-        <HiLocationMarker
-          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-          size={20}
-        />
-        <Input
-          type="text"
-          inputMode="numeric"
-          pattern="[0-9]*"
-          maxLength={5}
-          placeholder="Zip Code"
-          className="w-full py-5 px-10 text-black text-[1.5rem] font-bold"
-          onChange={handleZipChange}
-        />
-      </div>
+      <ZipCodeComp handleZipChange={handleZipChange} />
       <ContinueButton onClick={() => setFormIndex(3)} />
     </>
   );

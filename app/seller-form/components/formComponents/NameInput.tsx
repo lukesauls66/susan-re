@@ -1,7 +1,7 @@
 import React from "react";
-import { Input } from "@/components/ui/input";
-import Title from "./sharedComponents/Title";
-import ContinueButton from "./sharedComponents/ContinueButton";
+import Title from "../../../../components/FormComponents/sharedComponents/Title";
+import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
+import { ClientNameInput } from "@/components/FormComponents/ClientNameInput";
 
 type Props = {
   setFormData: React.Dispatch<
@@ -22,23 +22,7 @@ const NameInput = ({ setFormData, setFormIndex }: Props) => {
   return (
     <>
       <Title>What&apos;s your name?</Title>
-      <div className="flex gap-3 items-center justify-between">
-        <Input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          onChange={handleInputChange}
-          className="w-full p-6 text-black bg-[#e9e9e9] rounded-md"
-        />
-
-        <Input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          onChange={handleInputChange}
-          className="w-full p-6 text-black bg-[#e9e9e9] rounded-md"
-        />
-      </div>
+      <ClientNameInput handleInputChange={handleInputChange} />
       <ContinueButton onClick={() => setFormIndex(6)} />
     </>
   );

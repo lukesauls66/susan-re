@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
-import Title from "./sharedComponents/Title";
-import ContinueButton from "./sharedComponents/ContinueButton";
+import Title from "../../../../components/FormComponents/sharedComponents/Title";
+import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 
 type Props = {
   setFormData: React.Dispatch<

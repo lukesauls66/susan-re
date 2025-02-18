@@ -12,8 +12,8 @@ function urlFor(source: SanityImageSource) {
 const BlogSection = async () => {
   const blogs = await getBlogs();
 
-  const lastThreeBlogs = blogs.slice(-3);
-  console.log(lastThreeBlogs);
+  const latestThreeBlogs = blogs.slice(0, 3);
+  console.log(latestThreeBlogs);
 
   return (
     <div className="flex flex-col items-center justify-center gap-[3rem] py-4 px-8">
@@ -21,9 +21,9 @@ const BlogSection = async () => {
         Blog
       </h3>
       <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-6 lg:gap-10 xl:gap-12">
-        {lastThreeBlogs.map((blog, index) => (
+        {latestThreeBlogs.map((blog, index) => (
           <div
-            key={blog.id || index}
+            key={blog.title + blog.date || index}
             className="flex flex-col gap-4 w-full max-w-[19rem] items-center"
           >
             <div className="w-full rounded-md h-[200px]">

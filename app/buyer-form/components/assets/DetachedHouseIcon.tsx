@@ -3,7 +3,7 @@ import React from "react";
 function DetachedHouseIcon() {
   const svgStyle = {
     fill: "none",
-    stroke: "red",
+    stroke: "#C8373E",
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
   };

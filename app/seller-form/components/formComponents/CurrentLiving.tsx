@@ -1,8 +1,8 @@
 import React from "react";
-import HomeSvg from "@/public/formAssets/HomeSvg";
-import KeySvg from "@/public/formAssets/KeySvg";
-import AptSvg from "@/public/formAssets/AptSvg";
-import OtherSvg from "@/public/formAssets/OtherSvg";
+import HomeSvg from "@/app/seller-form/assets/HomeSvg";
+import KeySvg from "@/app/seller-form/assets/KeySvg";
+import AptSvg from "@/app/seller-form/assets/AptSvg";
+import OtherSvg from "@/app/seller-form/assets/OtherSvg";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import OptionSelectGrid from "@/components/FormComponents/OptionSelectGrid";
 

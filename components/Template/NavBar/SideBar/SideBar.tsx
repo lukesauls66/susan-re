@@ -1,20 +1,9 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-
 interface SideBarProps {
   isOpen: boolean;
   toggleSidebar: () => void;
 }
 
 const SideBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
-  const router = useRouter();
-
-  const handleNavigation = (path: string) => {
-    toggleSidebar();
-    router.push(path);
-  };
-
   return (
     <div>
       <div
@@ -25,39 +14,34 @@ const SideBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
         <div className="flex flex-col items-center justify-between h-full">
           <div className="flex flex-col items-center gap-10">
             <a
-              href="#"
-              onClick={() => handleNavigation("/buyer-form")}
-              className="text-white hover:text-red hover:scale-10"
+              href="/buyer-form"
+              className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Home Search
             </a>
             <a
-              href="#"
-              onClick={() => handleNavigation("/seller-form")}
-              className="text-white hover:text-red hover:scale-10"
+              href="/seller-form"
+              className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Home Valuation
             </a>
             <a
-              href="#"
-              onClick={() => handleNavigation("/testimonials")}
-              className="text-white hover:text-red hover:scale-10"
+              href="/testimonials"
+              className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Testimonials
             </a>
             <a
-              href="#"
-              onClick={() => handleNavigation("/blog")}
-              className="text-white hover:text-red hover:scale-10"
+              href="/blog"
+              className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Blog
             </a>
           </div>
-          <div>
+          <div className="flex items-center">
             <a
-              href="#"
-              onClick={() => handleNavigation("/about")}
-              className="text-white hover:text-red hover:scale-10"
+              href="/about"
+              className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               About Us
             </a>

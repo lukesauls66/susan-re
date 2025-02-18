@@ -60,7 +60,7 @@ const BlogPageBody = () => {
     <div className="w-full flex flex-col items-center gap-4 md:gap-6 lg:gap-8 xl:gap-12">
       {displayedBlogs.map((blog, index) => (
         <div
-          className={`bg-gray-200 rounded-md p-2 md:p-4 xl:p-6 max-w-[40rem] lg:max-w-[75rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
+          className={`bg-gray-200 rounded-md p-2 md:p-4 xl:p-6 max-w-[40rem] lg:max-w-[55rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
           key={blog.title + blog.date}
         >
           <div className="flex flex-col gap-4 w-full items-center">

@@ -39,7 +39,7 @@ export async function getReviews(): Promise<Review[]> {
 
 export interface Blog {
   title: string;
-  image: SanityImage | null;
+  image: SanityImage;
   description: string;
   date: string;
 }

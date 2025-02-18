@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import BuyerHomeSelection from "./BuyerHomeSelection";
+import SquareMetersInput from "./SquareMetersInput";
 
 const BuyerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
@@ -20,7 +21,12 @@ const BuyerFormBody = () => {
           />
         );
       case 1:
-        return <></>;
+        return (
+          <SquareMetersInput
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
+        );
       case 2:
         return <></>;
       case 3:

@@ -1,4 +1,3 @@
-import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 
 interface SanityImage {
@@ -23,7 +22,7 @@ export interface Review {
 export async function getReviews(): Promise<Review[]> {
   const options = { next: { revalidate: 30 } };
 
-  const REVIEW_QUERY = `*[_type == "review"]{
+  const REVIEW_QUERY = `*[_type == "review"] | order(date desc){
     firstName, 
     lastName, 
     clientImage, 
@@ -38,10 +37,17 @@ export async function getReviews(): Promise<Review[]> {
   return reviews;
 }
 
-export async function getBlogs() {
+export interface Blog {
+  title: string;
+  image: SanityImage;
+  description: string;
+  date: string;
+}
+
+export async function getBlogs(): Promise<Blog[]> {
   const options = { next: { revalidate: 30 } };
 
-  const BLOG_QUERY = `*[_type == "blog"]{title, image, description, date}`;
-  const blogs = await client.fetch<SanityDocument[]>(BLOG_QUERY, {}, options);
+  const BLOG_QUERY = `*[_type == "blog"] | order(date desc){title, image, description, date}`;
+  const blogs = await client.fetch(BLOG_QUERY, {}, options);
   return blogs;
 }

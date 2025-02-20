@@ -41,10 +41,5 @@ export const reviewType = defineType({
       type: "text",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: "rating",
-      type: "number",
-      validation: (Rule) => Rule.required().max(5).min(1),
-    }),
   ],
 });

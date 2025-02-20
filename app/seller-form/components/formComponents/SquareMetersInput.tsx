@@ -5,20 +5,20 @@ import React from "react";
 type Props = {
   setFormData: React.Dispatch<
     React.SetStateAction<{
-      squareMeters: string;
+      squareFeet: string;
     }>
   >;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const SquareMetersInput = (props: Props) => {
+const SquareFeetInput = (props: Props) => {
   const { setFormData, setFormIndex } = props;
   const options = [
-    "less than 100 sqm",
-    "100-500 sqm",
-    "500-1000 sqm",
-    "1000-2000 sqm",
-    "over 2000 sqm",
+    "less than 100 sqft",
+    "100-500 sqft",
+    "500-1000 sqft",
+    "1000-2000 sqft",
+    "over 2000 sqft",
   ];
   return (
     <>
@@ -31,7 +31,7 @@ const SquareMetersInput = (props: Props) => {
             key={option}
             variant="formButton"
             onClick={() => {
-              setFormData((prev) => ({ ...prev, squareMeters: option }));
+              setFormData((prev) => ({ ...prev, squareFeet: option }));
               setFormIndex(2);
             }}
             className="p-4 h-[5rem] w-full bg-white text-black text-[1.3rem] hover:text-white"
@@ -46,4 +46,4 @@ const SquareMetersInput = (props: Props) => {
   );
 };
 
-export default SquareMetersInput;
+export default SquareFeetInput;

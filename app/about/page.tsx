@@ -13,7 +13,7 @@ async function AboutPage() {
         About Me
       </h1>
       <div className="flex flex-col md:flex-row align-center justify-center gap-4">
-        <div className="md:h-96 md:w-96 rounded-md overflow-hidden aspect-square">
+        <div className="min-w-[5rem] min-h-[5rem] max-h-[23rem] rounded-md overflow-hidden aspect-square">
           <img
             src={urlFor(aboutData.imageUrl).url()}
             alt={aboutData.name}

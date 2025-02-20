@@ -76,10 +76,9 @@ const PageContent: React.FC<PageContentProps> = ({ contentType }) => {
 
   return (
     <div className="w-full flex flex-col items-center gap-4 md:gap-6 lg:gap-8 xl:gap-12">
-      {contentType === "reviews" && (
+      {contentType === "reviews" ? (
         <ReviewsContent displayedContent={displayedContent} />
-      )}
-      {contentType === "blogs" && (
+      ) : (
         <BlogsContent displayedContent={displayedContent} />
       )}
       <div className="flex justify-between w-full mt-4">

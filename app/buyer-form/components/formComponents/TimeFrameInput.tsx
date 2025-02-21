@@ -10,18 +10,23 @@ type Props = {
       timeFrame: number;
     }>
   >;
+  formData: {
+    timeFrame: number;
+  };
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
-function TimeFrameInput({ setFormData, setFormIndex }: Props) {
+function TimeFrameInput({ setFormData, setFormIndex, formData }: Props) {
   const [inputValue, setInputValue] = useState(0);
   function onChangeHandler(timeFrame: number) {
     setFormData((prev) => ({ ...prev, timeFrame }));
     setInputValue(timeFrame);
   }
-
+  function disableButton() {
+    return formData.timeFrame <= 0;
+  }
   return (
     <>
-      <Title>What&apos;s your timeframe for moving?</Title>
+      <Title>What&apos;s your time frame for moving?</Title>
       <div className="flex p-4 border-solid border-2 border-black/60 rounded-md  bg-slate-500 max-w-[20rem] justify-center items-center gap-2">
         <p className="w-full">in the next:</p>
         <p className="bg-transparent">{inputValue}</p>
@@ -33,7 +38,10 @@ function TimeFrameInput({ setFormData, setFormIndex }: Props) {
         metric="months"
         increment={1}
       />
-      <ContinueButton onClick={() => setFormIndex(2)} />
+      <ContinueButton
+        disable={disableButton()}
+        onClick={() => setFormIndex(2)}
+      />
     </>
   );
 }

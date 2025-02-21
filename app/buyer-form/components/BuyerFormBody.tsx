@@ -8,20 +8,21 @@ import PrioritiesInput from "./formComponents/PrioritiesInput";
 import NameInput from "./formComponents/NameInput";
 import ConsentForm from "./formComponents/ConsentForm";
 import ThankYouDisplay from "../../../components/FormComponents/ThankYouDisplay";
-import { SellerType } from "@/types/sellerType";
+import { BuyerType } from "@/types/buyerType";
 
-const Form = () => {
+const BuyerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
-  const [formData, setFormData] = useState<SellerType>({
+  const [formData, setFormData] = useState<BuyerType>({
     propertyType: "",
-    squareFeet: "",
-    indoorSizeArea: 0,
-    houseCondition: "",
+    priorities: [],
+    timeFrame: 0,
+    rooms: 0,
     zipCode: "",
     emailAddress: "",
     firstName: "",
     lastName: "",
     phoneNumber: "",
+    kwConsent: false,
     consent: false,
   });
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -94,4 +95,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default BuyerFormBody;

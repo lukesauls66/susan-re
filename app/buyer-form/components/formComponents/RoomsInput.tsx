@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
+import { BuyerType } from "@/types/buyerType";
+import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      rooms: number;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
+  formData: BuyerType;
 };
 
-const RoomsInput = ({ setFormData, setFormIndex }: Props) => {
-  const [selectedRooms, setSelectedRooms] = useState<number | null>(null);
+const RoomsInput = ({ setFormData, setFormIndex, formData }: Props) => {
+  const [selectedRooms, setSelectedRooms] = useState<number>(0);
 
   const handleRoomSelect = (rooms: number) => {
     setSelectedRooms(rooms);
@@ -21,6 +20,7 @@ const RoomsInput = ({ setFormData, setFormIndex }: Props) => {
 
   const roomOptions = [1, 2, 3, 4, 5, "6+"];
 
+  const isButtonEnabled = UseEnableButton({ formData, data: "rooms" });
   return (
     <>
       <Title>How many rooms are you looking for?</Title>
@@ -50,7 +50,10 @@ const RoomsInput = ({ setFormData, setFormIndex }: Props) => {
           );
         })}
       </div>
-      <ContinueButton onClick={() => setFormIndex(4)} />
+      <ContinueButton
+        disable={isButtonEnabled}
+        onClick={() => setFormIndex(4)}
+      />
     </>
   );
 };

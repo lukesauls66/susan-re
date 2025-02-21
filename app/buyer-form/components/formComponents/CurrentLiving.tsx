@@ -5,10 +5,10 @@ import AptSvg from "@/app/buyer-form/assets/AptSvg";
 import OtherSvg from "@/app/buyer-form/assets/OtherSvg";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import OptionSelectGrid from "@/components/FormComponents/OptionSelectGrid";
-import { SellerType } from "@/types/sellerType";
+import { BuyerType } from "@/types/buyerType";
 
 type Props = {
-  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
+  setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 

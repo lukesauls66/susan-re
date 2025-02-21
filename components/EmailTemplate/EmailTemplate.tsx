@@ -24,31 +24,24 @@ type EmailTemplateProps =
   | TestimonialEmailProps;
 
 const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
-  // variable of content displayed that will hold:
-  // propertyType, timeFrame, zipCode, rooms, priorities,
-  // phoneNumber, emailAddress, squareFeet, indoorSizeArea
-  // houseCondition, description
-  //   const contentDisplayed = {};
-  //   const filterContentType = () => {
-  //     if (contentType === "buyer") {
-  //       return (
-  //         <div>
-  //           <p>Property Type: {formData.propertyType}</p>
-  //           <p>Time Frame: {formData.timeFrame}</p>
-  //           <p>Zip Code: {formData.zipCode}</p>
-  //           <p>Rooms: {formData.rooms}</p>
-  //           <p>Priorities: {formData.priorities.join(", ")}</p>
-  //           <p>First Name: {formData.firstName}</p>
-  //           <p>Last Name: {formData.lastName}</p>
-  //           <p>Phone Number: {formData.phoneNumber}</p>
-  //           <p>Email Address: {formData.emailAddress}</p>
-  //           <p>Consent: {formData.consent ? "Yes" : "No"}</p>
-  //         </div>
-  //       );
-  //     } else if (contentType === "seller") {
-  //     } else {
-  //     }
-  //   };
+  const filterContentType = () => {
+    if (contentType === "seller") {
+      return (
+        <p>
+          They have a {formData.propertyType} with {formData.indoorSizeArea}{" "}
+          internally and {formData.squareFeet} total. In the {formData.zipCode}{" "}
+          area and is in {formData.houseCondition} condition.
+        </p>
+      );
+    } else if (contentType === "buyer") {
+      <p>
+        A {formData.propertyType} within {formData.timeFrame} in the{" "}
+        {formData.zipCode} area with {formData.rooms}
+        rooms. Ideally that would like these options; {formData.priorities}
+      </p>;
+    } else {
+    }
+  };
 
   return (
     <div>

@@ -4,7 +4,6 @@ import Title from "../../../../components/FormComponents/sharedComponents/Title"
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 import SliderOption from "@/components/FormComponents/SliderOption";
 import { BuyerType } from "@/types/buyerType";
-import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
   setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
@@ -18,7 +17,6 @@ function TimeFrameInput({ setFormData, setFormIndex, formData }: Props) {
     setInputValue(timeFrame);
   }
 
-  const isButtonEnabled = UseEnableButton({ formData, data: "timeFrame" });
   return (
     <>
       <Title>What&apos;s your time frame for moving?</Title>
@@ -34,7 +32,8 @@ function TimeFrameInput({ setFormData, setFormIndex, formData }: Props) {
         increment={1}
       />
       <ContinueButton
-        disable={isButtonEnabled}
+        formData={formData}
+        data={["timeFrame"]}
         onClick={() => setFormIndex(2)}
       />
     </>

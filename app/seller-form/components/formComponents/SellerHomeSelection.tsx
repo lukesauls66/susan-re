@@ -5,14 +5,12 @@ import TerraceHouseCorner from "../assets/TerraceHouseCorner";
 import TerraceHouseMiddle from "../assets/TerraceHouseMiddle";
 import Title from "@/components/FormComponents/sharedComponents/Title";
 import OptionSelectGrid from "@/components/FormComponents/OptionSelectGrid";
+import { SellerType } from "@/types/sellerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      propertyType: string;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
+  formData: SellerType;
 };
 
 const SellerHomeSelection = (props: Props) => {

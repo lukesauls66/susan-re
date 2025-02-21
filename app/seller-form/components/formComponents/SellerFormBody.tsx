@@ -7,10 +7,22 @@ import HouseCondition from "./HouseCondition";
 import SellerZipCodeInput from "./SellerZipCodeInput";
 import SellerConsentForm from "./SellerConsentForm";
 import ThankYouDisplay from "@/components/FormComponents/ThankYouDisplay";
+import { SellerType } from "@/types/sellerType";
 
 const SellerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<SellerType>({
+    propertyType: "",
+    squareFeet: "",
+    indoorSizeArea: 0,
+    houseCondition: "",
+    zipCode: "",
+    phoneNumber: "",
+    emailAddress: "",
+    consent: false,
+    firstName: "",
+    lastName: "",
+  });
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(formData);
@@ -21,6 +33,7 @@ const SellerFormBody = () => {
       case 0:
         return (
           <SellerHomeSelection
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -28,6 +41,7 @@ const SellerFormBody = () => {
       case 1:
         return (
           <SquareMetersInput
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -35,6 +49,7 @@ const SellerFormBody = () => {
       case 2:
         return (
           <IndoorSizeArea
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -42,6 +57,7 @@ const SellerFormBody = () => {
       case 3:
         return (
           <HouseCondition
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -49,6 +65,7 @@ const SellerFormBody = () => {
       case 4:
         return (
           <SellerZipCodeInput
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -56,6 +73,7 @@ const SellerFormBody = () => {
       case 5:
         return (
           <SellerConsentForm
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />

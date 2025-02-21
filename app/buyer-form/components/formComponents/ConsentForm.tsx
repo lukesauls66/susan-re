@@ -56,12 +56,10 @@ function ConsentForm({ setFormData, formData }: Props) {
       />
 
       <Button
-        disabled={
-          UseEnableButton({ formData, data: "consent" }) ||
-          UseEnableButton({ formData, data: "kwConsent" }) ||
-          UseEnableButton({ formData, data: "emailAddress" }) ||
-          UseEnableButton({ formData, data: "phoneNumber" })
-        }
+        disabled={UseEnableButton({
+          formData,
+          data: ["consent", "kwConsent", "emailAddress", "phoneNumber"],
+        })}
         type="submit"
         variant={"formButton"}
         className="flex items-center gap-2 w-full"

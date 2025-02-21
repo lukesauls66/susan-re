@@ -3,7 +3,6 @@ import Title from "../../../../components/FormComponents/sharedComponents/Title"
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 import { ClientNameInput } from "@/components/FormComponents/ClientNameInput";
 import { BuyerType } from "@/types/buyerType";
-import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
   setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
@@ -22,10 +21,8 @@ const NameInput = ({ setFormData, setFormIndex, formData }: Props) => {
       <Title>What&apos;s your name?</Title>
       <ClientNameInput handleInputChange={handleInputChange} />
       <ContinueButton
-        disable={
-          UseEnableButton({ formData, data: "firstName" }) ||
-          UseEnableButton({ formData, data: "lastName" })
-        }
+        formData={formData}
+        data={["firstName", "lastName"]}
         onClick={() => setFormIndex(6)}
       />
     </>

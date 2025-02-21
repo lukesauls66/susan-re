@@ -3,7 +3,6 @@ import Title from "../../../../components/FormComponents/sharedComponents/Title"
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 import ZipCodeComp from "@/components/FormComponents/ZipCodeComp";
 import { BuyerType } from "@/types/buyerType";
-import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
   setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
@@ -20,13 +19,13 @@ const ZipCodeInput = ({ setFormData, setFormIndex, formData }: Props) => {
     setFormData((prev) => ({ ...prev, zipCode: value }));
   };
 
-  const isButtonEnabled = UseEnableButton({ formData, data: "zipCode" });
   return (
     <>
       <Title>What area do you want to live in?</Title>
       <ZipCodeComp handleZipChange={handleZipChange} />
       <ContinueButton
-        disable={isButtonEnabled}
+        formData={formData}
+        data={["zipCode"]}
         onClick={() => setFormIndex(3)}
       />
     </>

@@ -3,7 +3,6 @@ import { Input } from "@/components/ui/input";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 import { BuyerType } from "@/types/buyerType";
-import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
   setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
@@ -53,8 +52,6 @@ function PrioritiesInput({ setFormData, setFormIndex, formData }: Props) {
       }
     }
   };
-
-  const isButtonEnabled = UseEnableButton({ formData, data: "priorities" });
 
   return (
     <>
@@ -109,7 +106,8 @@ function PrioritiesInput({ setFormData, setFormIndex, formData }: Props) {
         )}
       </div>
       <ContinueButton
-        disable={isButtonEnabled}
+        formData={formData}
+        data={["priorities"]}
         onClick={() => selectedPriorities.length > 0 && setFormIndex(5)}
       />
     </>

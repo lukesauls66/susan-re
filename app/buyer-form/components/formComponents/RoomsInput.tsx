@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 import { BuyerType } from "@/types/buyerType";
-import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
   setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
@@ -20,7 +19,6 @@ const RoomsInput = ({ setFormData, setFormIndex, formData }: Props) => {
 
   const roomOptions = [1, 2, 3, 4, 5, "6+"];
 
-  const isButtonEnabled = UseEnableButton({ formData, data: "rooms" });
   return (
     <>
       <Title>How many rooms are you looking for?</Title>
@@ -51,7 +49,8 @@ const RoomsInput = ({ setFormData, setFormIndex, formData }: Props) => {
         })}
       </div>
       <ContinueButton
-        disable={isButtonEnabled}
+        formData={formData}
+        data={["rooms"]}
         onClick={() => setFormIndex(4)}
       />
     </>

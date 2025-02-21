@@ -2,19 +2,12 @@ import { ClientNameInput } from "@/components/FormComponents/ClientNameInput";
 import ConsentInputForm from "@/components/FormComponents/ConsentInputForm";
 import Title from "@/components/FormComponents/sharedComponents/Title";
 import { Button } from "@/components/ui/button";
+import { SellerType } from "@/types/sellerType";
 import React, { useState } from "react";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      phoneNumber: string;
-      emailAddress: string;
-      consent: boolean;
-      firstName: string;
-      lastName: string;
-    }>
-  >;
-
+  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
+  formData: SellerType;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 

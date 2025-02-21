@@ -10,7 +10,7 @@ type Props = {
 };
 
 const SellerZipCodeInput = (props: Props) => {
-  const { setFormData, setFormIndex } = props;
+  const { setFormData, setFormIndex, formData } = props;
   function handleZipChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value.replace(/\D/g, "");
     if (value.length <= 5) {
@@ -21,7 +21,11 @@ const SellerZipCodeInput = (props: Props) => {
   return (
     <div className="flex flex-col gap-4 w-full">
       <ZipCodeComp handleZipChange={handleZipChange} />
-      <ContinueButton onClick={() => setFormIndex(5)} />
+      <ContinueButton
+        formData={formData}
+        data={["zipCode"]}
+        onClick={() => setFormIndex(5)}
+      />
     </div>
   );
 };

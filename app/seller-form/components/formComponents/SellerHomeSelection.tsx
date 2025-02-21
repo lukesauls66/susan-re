@@ -1,8 +1,8 @@
 import React from "react";
-import DetachedHouseIcon from "../assets/DetachedHouseIcon";
-import SemiDetachedHouse from "../assets/SemiDetachedHouse";
-import TerraceHouseCorner from "../assets/TerraceHouseCorner";
-import TerraceHouseMiddle from "../assets/TerraceHouseMiddle";
+import DetachedHouseIcon from "../../assets/DetachedHouseIcon";
+import SemiDetachedHouse from "../../assets/SemiDetachedHouse";
+import TerraceHouseCorner from "../../assets/TerraceHouseCorner";
+import TerraceHouseMiddle from "../../assets/TerraceHouseMiddle";
 import Title from "@/components/FormComponents/sharedComponents/Title";
 import OptionSelectGrid from "@/components/FormComponents/OptionSelectGrid";
 import { SellerType } from "@/types/sellerType";

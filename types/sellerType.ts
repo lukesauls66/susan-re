@@ -7,6 +7,7 @@ export interface SellerType {
   phoneNumber: string;
   emailAddress: string;
   consent: boolean;
+  kwConsent: boolean;
   firstName: string;
   lastName: string;
 }

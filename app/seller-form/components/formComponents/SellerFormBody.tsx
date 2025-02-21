@@ -20,6 +20,7 @@ const SellerFormBody = () => {
     phoneNumber: "",
     emailAddress: "",
     consent: false,
+    kwConsent: false,
     firstName: "",
     lastName: "",
   });

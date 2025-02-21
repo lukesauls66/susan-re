@@ -4,6 +4,7 @@ import Title from "@/components/FormComponents/sharedComponents/Title";
 import { Button } from "@/components/ui/button";
 import { SellerType } from "@/types/sellerType";
 import React, { useState } from "react";
+import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
   setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
@@ -12,7 +13,7 @@ type Props = {
 };
 
 const SellerConsentForm = (props: Props) => {
-  const { setFormData } = props;
+  const { setFormData, formData } = props;
   const [formValues, setFormValues] = useState({
     phoneNumber: "",
     emailAddress: "",
@@ -61,6 +62,10 @@ const SellerConsentForm = (props: Props) => {
         formValues={formValues}
       />
       <Button
+        disabled={UseEnableButton({
+          formData,
+          data: ["firstName", "lastName", "consent", "kwConsent"],
+        })}
         type="submit"
         variant={"formButton"}
         className="flex items-center gap-2 w-full"

@@ -18,6 +18,7 @@ function UseEnableButton<T extends BuyerType | SellerType>({
         } else {
           return true;
         }
+      case "indoorSizeArea":
       case "rooms":
       case "timeFrame":
       case "zipCode":

@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import BuyerHomeSelection from "./BuyerHomeSelection";
+import SellerHomeSelection from "./SellerHomeSelection";
 import SquareMetersInput from "./SquareMetersInput";
 import IndoorSizeArea from "./IndoorSizeArea";
 import HouseCondition from "./HouseCondition";
-import BuyerZipCodeInput from "./BuyerZipCodeInput";
-import BuyerConsentForm from "./BuyerConsentForm";
+import SellerZipCodeInput from "./SellerZipCodeInput";
+import SellerConsentForm from "./SellerConsentForm";
 import ThankYouDisplay from "@/components/FormComponents/ThankYouDisplay";
 
-const BuyerFormBody = () => {
+const SellerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
   const [formData, setFormData] = useState({});
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -20,7 +20,7 @@ const BuyerFormBody = () => {
     switch (formIndex) {
       case 0:
         return (
-          <BuyerHomeSelection
+          <SellerHomeSelection
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -48,14 +48,14 @@ const BuyerFormBody = () => {
         );
       case 4:
         return (
-          <BuyerZipCodeInput
+          <SellerZipCodeInput
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
         );
       case 5:
         return (
-          <BuyerConsentForm
+          <SellerConsentForm
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -76,4 +76,4 @@ const BuyerFormBody = () => {
   );
 };
 
-export default BuyerFormBody;
+export default SellerFormBody;

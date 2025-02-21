@@ -4,7 +4,7 @@ import { HiArrowRight } from "react-icons/hi";
 
 type Props = {
   onClick: () => void;
-  disable: boolean;
+  disable?: boolean;
 };
 
 function ContinueButton({ onClick, disable }: Props) {

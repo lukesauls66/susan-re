@@ -3,16 +3,11 @@ import React, { useState } from "react";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 import SliderOption from "@/components/FormComponents/SliderOption";
+import { SellerType } from "@/types/sellerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      timeFrame: number;
-    }>
-  >;
-  formData: {
-    timeFrame: number;
-  };
+  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
+  formData: SellerType;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 function TimeFrameInput({ setFormData, setFormIndex, formData }: Props) {

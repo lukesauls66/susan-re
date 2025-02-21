@@ -18,7 +18,7 @@ type Props = {
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const BuyerConsentForm = (props: Props) => {
+const SellerConsentForm = (props: Props) => {
   const { setFormData } = props;
   const [formValues, setFormValues] = useState({
     phoneNumber: "",
@@ -78,4 +78,4 @@ const BuyerConsentForm = (props: Props) => {
   );
 };
 
-export default BuyerConsentForm;
+export default SellerConsentForm;

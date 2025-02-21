@@ -7,7 +7,7 @@ type Props = {
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const BuyerZipCodeInput = (props: Props) => {
+const SellerZipCodeInput = (props: Props) => {
   const { setFormData, setFormIndex } = props;
   function handleZipChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value.replace(/\D/g, "");
@@ -24,4 +24,4 @@ const BuyerZipCodeInput = (props: Props) => {
   );
 };
 
-export default BuyerZipCodeInput;
+export default SellerZipCodeInput;

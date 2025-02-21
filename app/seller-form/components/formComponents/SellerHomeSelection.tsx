@@ -15,7 +15,7 @@ type Props = {
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const BuyerHomeSelection = (props: Props) => {
+const SellerHomeSelection = (props: Props) => {
   const { setFormData, setFormIndex } = props;
 
   function onClickHandler(propertyType: string) {
@@ -56,4 +56,4 @@ const BuyerHomeSelection = (props: Props) => {
   );
 };
 
-export default BuyerHomeSelection;
+export default SellerHomeSelection;

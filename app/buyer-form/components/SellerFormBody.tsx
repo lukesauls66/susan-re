@@ -12,9 +12,27 @@ import ThankYouDisplay from "../../../components/FormComponents/ThankYouDisplay"
 const Form = () => {
   const [formIndex, setFormIndex] = useState(0);
   const [formData, setFormData] = useState({});
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(formData);
+
+    const response = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contentType: "buyer",
+        formData: formData,
+      }),
+    });
+
+    if (response.ok) {
+      console.log("Form data sent successfully");
+    } else {
+      console.error("Failed to send form data");
+    }
+
     setFormIndex(7);
   }
   const inputDisplay = () => {

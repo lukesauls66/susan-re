@@ -12,6 +12,7 @@ import { BuyerType } from "@/types/buyerType";
 
 const BuyerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
+  const [error, setError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<BuyerType>({
     propertyType: "",
@@ -28,23 +29,28 @@ const BuyerFormBody = () => {
   });
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(formData);
+    console.log(formData, "ON FORM");
 
-    const response = await fetch("/api/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contentType: "buyer",
-        formData: formData,
-      }),
-    });
+    try {
+      await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contentType: "buyer",
+          formData: formData,
+        }),
+      });
 
-    if (response.ok) {
-      console.log("Form data sent successfully");
-    } else {
-      console.error("Failed to send form data");
+      setFormIndex(7);
+    } catch (err) {
+      console.error("Form submission error:", err);
+      if (err instanceof Error) {
+        setError(err.message || "An error occurred during form submission");
+      } else {
+        setError("An error occurred during form submission");
+      }
     }
 
     setFormIndex(7);
@@ -109,6 +115,7 @@ const BuyerFormBody = () => {
       onSubmit={(e) => handleSubmit(e)}
       className="flex flex-col gap-4 items-center"
     >
+      {error && <div className="error-message">{error}</div>}
       {inputDisplay()}
     </form>
   );

@@ -1,27 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import React from "react";
 
 type Props = {
-  imgSrc: string;
+  imgSrc?: string;
   className?: string;
 };
 
 const Pfp = ({ imgSrc, className }: Props) => {
+  const imageSrc = imgSrc || "/images/assets/default-user.svg";
   return (
-    <Avatar className={`${className ? className : ""} bg-blue`}>
-      <AvatarImage
-        className={`${className ? "" : "w-full h-full"} object-cover`}
-        src={imgSrc}
+    <div
+      className={`relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full ${className || ""}`}
+    >
+      <img
+        className={`aspect-square h-full w-full object-cover ${className ? "" : "w-full h-full"}`}
+        src={imageSrc}
         alt="Profile Photo"
       />
-      <AvatarFallback className="bg-grey">
+      <div className="flex h-full w-full items-center justify-center rounded-full bg-muted">
         <img
-          className={`${className ? "" : "w-full h-full"} object-cover`}
+          className={`object-cover ${className ? "" : "w-full h-full"}`}
           src="/images/assets/user.svg"
           alt="Profile Photo"
         />
-      </AvatarFallback>
-    </Avatar>
+      </div>
+    </div>
   );
 };
 

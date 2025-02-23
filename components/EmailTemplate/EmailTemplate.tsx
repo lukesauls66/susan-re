@@ -1,30 +1,35 @@
-import { SellerType } from "@/types/sellerType";
 import { BuyerType } from "@/types/buyerType";
+import { SellerType } from "@/types/sellerType";
 import { TestimonialType } from "@/types/testimonialType";
-import { Button } from "../ui/button";
 import Pfp from "../AssetComponents/Pfp";
+import { Button } from "../ui/button";
 
-interface BuyerEmailProps {
+interface BaseEmailProps {
+  contentType: "buyer" | "seller" | "testimonial";
+}
+
+export interface BuyerEmailProps extends BaseEmailProps {
   contentType: "buyer";
   formData: BuyerType;
 }
 
-interface SellerEmailProps {
+export interface SellerEmailProps extends BaseEmailProps {
   contentType: "seller";
   formData: SellerType;
 }
 
-interface TestimonialEmailProps {
+export interface TestimonialEmailProps extends BaseEmailProps {
   contentType: "testimonial";
   formData: TestimonialType;
 }
 
-type EmailTemplateProps =
+export type EmailTemplateProps =
   | BuyerEmailProps
   | SellerEmailProps
   | TestimonialEmailProps;
 
 const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
+  console.log(contentType, "on the email template");
   const filterContentType = () => {
     if (contentType === "seller") {
       return (

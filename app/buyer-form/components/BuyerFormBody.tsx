@@ -8,10 +8,24 @@ import PrioritiesInput from "./formComponents/PrioritiesInput";
 import NameInput from "./formComponents/NameInput";
 import ConsentForm from "./formComponents/ConsentForm";
 import ThankYouDisplay from "../../../components/FormComponents/ThankYouDisplay";
+import { BuyerType } from "@/types/buyerType";
 
-const Form = () => {
+const BuyerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
-  const [formData, setFormData] = useState({});
+
+  const [formData, setFormData] = useState<BuyerType>({
+    propertyType: "",
+    priorities: [],
+    timeFrame: 0,
+    rooms: 0,
+    zipCode: "",
+    emailAddress: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    kwConsent: false,
+    consent: false,
+  });
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(formData);
@@ -47,31 +61,45 @@ const Form = () => {
       case 1:
         return (
           <TimeFrameInput
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
         );
       case 2:
         return (
-          <ZipCodeInput setFormData={setFormData} setFormIndex={setFormIndex} />
+          <ZipCodeInput
+            formData={formData}
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
         );
       case 3:
         return (
-          <RoomsInput setFormData={setFormData} setFormIndex={setFormIndex} />
+          <RoomsInput
+            formData={formData}
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
         );
       case 4:
         return (
           <PrioritiesInput
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
         );
       case 5:
         return (
-          <NameInput setFormData={setFormData} setFormIndex={setFormIndex} />
+          <NameInput
+            formData={formData}
+            setFormData={setFormData}
+            setFormIndex={setFormIndex}
+          />
         );
       case 6:
-        return <ConsentForm setFormData={setFormData} />;
+        return <ConsentForm formData={formData} setFormData={setFormData} />;
       case 7:
         return <ThankYouDisplay />;
     }
@@ -86,4 +114,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default BuyerFormBody;

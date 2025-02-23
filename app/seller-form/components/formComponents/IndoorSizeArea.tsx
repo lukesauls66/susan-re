@@ -2,18 +2,16 @@ import Title from "@/components/FormComponents/sharedComponents/Title";
 import SliderOption from "@/components/FormComponents/SliderOption";
 import React, { useState } from "react";
 import ContinueButton from "@/components/FormComponents/sharedComponents/ContinueButton";
+import { SellerType } from "@/types/sellerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      indoorSizeArea: number;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
+  formData: SellerType;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const IndoorSizeArea = (props: Props) => {
-  const { setFormData, setFormIndex } = props;
+  const { setFormData, setFormIndex, formData } = props;
   const [inputValue, setInputValue] = useState(0);
 
   function onChangeHandler(indoorSizeArea: number) {
@@ -27,11 +25,15 @@ const IndoorSizeArea = (props: Props) => {
       <SliderOption
         inputValue={inputValue}
         max={2000}
-        metric="sqm"
+        metric="sqft"
         increment={50}
         onChangeHandler={onChangeHandler}
       />
-      <ContinueButton onClick={() => setFormIndex(3)} />
+      <ContinueButton
+        formData={formData}
+        data={["indoorSizeArea"]}
+        onClick={() => setFormIndex(3)}
+      />
     </>
   );
 };

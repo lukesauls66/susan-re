@@ -1,16 +1,29 @@
 "use client";
 import React, { useState } from "react";
-import BuyerHomeSelection from "./BuyerHomeSelection";
+import SellerHomeSelection from "./SellerHomeSelection";
 import SquareMetersInput from "./SquareMetersInput";
 import IndoorSizeArea from "./IndoorSizeArea";
 import HouseCondition from "./HouseCondition";
-import BuyerZipCodeInput from "./BuyerZipCodeInput";
-import BuyerConsentForm from "./BuyerConsentForm";
+import SellerZipCodeInput from "./SellerZipCodeInput";
+import SellerConsentForm from "./SellerConsentForm";
 import ThankYouDisplay from "@/components/FormComponents/ThankYouDisplay";
+import { SellerType } from "@/types/sellerType";
 
-const BuyerFormBody = () => {
+const SellerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<SellerType>({
+    propertyType: "",
+    squareFeet: "",
+    indoorSizeArea: 0,
+    houseCondition: "",
+    zipCode: "",
+    phoneNumber: "",
+    emailAddress: "",
+    consent: false,
+    kwConsent: false,
+    firstName: "",
+    lastName: "",
+  });
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(formData);
@@ -20,7 +33,8 @@ const BuyerFormBody = () => {
     switch (formIndex) {
       case 0:
         return (
-          <BuyerHomeSelection
+          <SellerHomeSelection
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -28,6 +42,7 @@ const BuyerFormBody = () => {
       case 1:
         return (
           <SquareMetersInput
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -35,6 +50,7 @@ const BuyerFormBody = () => {
       case 2:
         return (
           <IndoorSizeArea
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -42,20 +58,23 @@ const BuyerFormBody = () => {
       case 3:
         return (
           <HouseCondition
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
         );
       case 4:
         return (
-          <BuyerZipCodeInput
+          <SellerZipCodeInput
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
         );
       case 5:
         return (
-          <BuyerConsentForm
+          <SellerConsentForm
+            formData={formData}
             setFormData={setFormData}
             setFormIndex={setFormIndex}
           />
@@ -76,4 +95,4 @@ const BuyerFormBody = () => {
   );
 };
 
-export default BuyerFormBody;
+export default SellerFormBody;

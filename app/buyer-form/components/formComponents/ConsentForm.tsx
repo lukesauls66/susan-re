@@ -2,18 +2,15 @@ import React, { useState } from "react";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import { Button } from "@/components/ui/button";
 import ConsentInputForm from "@/components/FormComponents/ConsentInputForm";
+import { BuyerType } from "@/types/buyerType";
+import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      phoneNumber: string;
-      emailAddress: string;
-      consent: boolean;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
+  formData: BuyerType;
 };
 
-function ConsentForm({ setFormData }: Props) {
+function ConsentForm({ setFormData, formData }: Props) {
   const [formValues, setFormValues] = useState({
     phoneNumber: "",
     emailAddress: "",
@@ -25,7 +22,6 @@ function ConsentForm({ setFormData }: Props) {
     const { name, value } = e.target;
     let formattedValue = value;
 
-    // Format phone number as user types
     if (name === "phoneNumber") {
       formattedValue = value.replace(/\D/g, "").slice(0, 10);
       if (formattedValue.length >= 6) {
@@ -60,6 +56,10 @@ function ConsentForm({ setFormData }: Props) {
       />
 
       <Button
+        disabled={UseEnableButton({
+          formData,
+          data: ["consent", "kwConsent", "emailAddress", "phoneNumber"],
+        })}
         type="submit"
         variant={"formButton"}
         className="flex items-center gap-2 w-full"

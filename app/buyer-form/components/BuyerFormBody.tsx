@@ -29,7 +29,6 @@ const BuyerFormBody = () => {
   });
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(formData, "ON FORM");
 
     try {
       await fetch("/api/send", {

@@ -13,7 +13,7 @@ const Pfp = ({ imgSrc, className }: Props) => {
       className={`relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full ${className || ""}`}
     >
       <img
-        className={`aspect-square h-full w-full object-cover ${className ? "" : "w-full h-full"}`}
+        className={`aspect-square h-full w-full object-cover bg-blue ${className ? "" : "w-full h-full"}`}
         src={imageSrc}
         alt="Profile Photo"
       />

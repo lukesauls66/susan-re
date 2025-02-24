@@ -1,8 +1,16 @@
 import { BuyerType } from "@/types/buyerType";
 import { SellerType } from "@/types/sellerType";
 import { TestimonialType } from "@/types/testimonialType";
-import Pfp from "../AssetComponents/Pfp";
-import { Button } from "../ui/button";
+import {
+  Html,
+  Head,
+  Body,
+  Container,
+  Section,
+  Heading,
+  Text,
+  Link,
+} from "@react-email/components";
 
 interface BaseEmailProps {
   contentType: "buyer" | "seller" | "testimonial";
@@ -29,114 +37,168 @@ export type EmailTemplateProps =
   | TestimonialEmailProps;
 
 const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
-  console.log(contentType, "on the email template");
   const filterContentType = () => {
     if (contentType === "seller") {
       return (
-        <>
-          <p className="text-center">
+        <Section style={styles.section}>
+          <Text style={styles.text}>
             <strong>
               {formData.firstName} {formData.lastName}
             </strong>{" "}
             is looking to sell!
-          </p>
-          <p className="text-center">
+          </Text>
+          <Text style={styles.text}>
             They have a <strong>{formData.propertyType}</strong> with{" "}
             <strong>{formData.indoorSizeArea}</strong> internally and{" "}
             <strong>{formData.squareFeet}</strong> total. In the{" "}
             <strong>{formData.zipCode}</strong> area and is in{" "}
             <strong>{formData.houseCondition}</strong> condition.
-          </p>
-          <br />
-          <p className="text-center font-bold text-lg">Contact</p>
-          <p className="text-start">
+          </Text>
+          <Text style={styles.heading}>Contact</Text>
+          <Text style={styles.contactText}>
             {formData.firstName} {formData.lastName}
             <br />
             Phone number: <strong>{formData.phoneNumber}</strong>
             <br />
             Email: <strong>{formData.emailAddress}</strong>
-          </p>
-        </>
+          </Text>
+        </Section>
       );
     } else if (contentType === "buyer") {
       return (
-        <>
-          <p className="text-center">
+        <Section style={styles.section}>
+          <Text style={styles.text}>
             <strong>
               {formData.firstName} {formData.lastName}
             </strong>{" "}
             is looking to buy!
-          </p>
-          <p className="text-center">
+          </Text>
+          <Text style={styles.text}>
             A <strong>{formData.propertyType}</strong> within{" "}
             <strong>{formData.timeFrame}</strong> months in the{" "}
             <strong>{formData.zipCode}</strong> area with{" "}
             <strong>{formData.rooms}</strong> rooms. Ideally they would like
             these options; <strong>{formData.priorities.join(", ")}</strong>
-          </p>
-          <br />
-          <p className="text-center font-bold text-lg">Contact</p>
-          <p className="text-start">
+          </Text>
+          <Text style={styles.heading}>Contact</Text>
+          <Text style={styles.contactText}>
             {formData.firstName} {formData.lastName}
             <br />
             Phone number: <strong>{formData.phoneNumber}</strong>
             <br />
             Email: <strong>{formData.emailAddress}</strong>
-          </p>
-        </>
+          </Text>
+        </Section>
       );
     } else {
       return (
-        <>
-          <div className="flex flex-col gap-5 items-center">
-            <p className="text-center">
-              Please verify{" "}
-              <strong>
-                {formData.firstName} {formData.lastName}
-              </strong>
-              &apos;s testimonial in your studio
-            </p>
-            <a
+        <Section style={styles.section}>
+          <Text style={styles.text}>
+            Please verify{" "}
+            <strong>
+              {formData.firstName} {formData.lastName}
+            </strong>
+            &apos;s testimonial in your studio
+          </Text>
+          <Section style={styles.buttonContainer}>
+            <Link
               href={`https://${process.env.DOMAIN}/studio/structure/review`}
-              target="_blank"
-              rel="noopener noreferrer"
+              style={styles.button}
             >
-              <Button className="font-bold w-[8rem]">Studio</Button>
-            </a>
-            <p className="text-center">
-              Once you verify, it will be displayed on your testimonials page.
-            </p>
-          </div>
-          <br />
-          <div className="flex flex-col gap-3 items-center">
-            <p className="text-center">
-              <strong>
-                {formData.firstName} {formData.lastName}
-              </strong>
-            </p>
-            <p className="text-center">{formData.description}</p>
-          </div>
-        </>
+              Studio
+            </Link>
+          </Section>
+          <Text style={styles.text}>
+            Once you verify, it will be displayed on your testimonials page.
+          </Text>
+          <Text style={styles.heading}>
+            <strong>
+              {formData.firstName} {formData.lastName}
+            </strong>
+          </Text>
+          <Text style={styles.text}>{formData.description}</Text>
+        </Section>
       );
     }
   };
 
   return (
-    <div className="flex flex-col gap-8 items-center justify-center p-6 max-w-[35rem] md:text-lg xl:text-xl bg-[#e7e7e7]">
-      <div className="flex flex-col gap-4 items-center justify-center">
-        <Pfp
-          imgSrc="/images/assets/susan_pfp.png"
-          className="mx-4 w-[5rem] h-[5rem]"
-        />
-        <h1 className="text-center">
-          Hi Susan, You have a new <strong>{contentType}</strong> alert!
-        </h1>
-      </div>
-      <div className="flex flex-col gap-2 items-center justify-center">
-        {filterContentType()}
-      </div>
-    </div>
+    <Html>
+      <Head />
+      <Body style={styles.body}>
+        <Container style={styles.container}>
+          <Section style={styles.header}>
+            <Heading style={styles.title}>
+              Hi Susan, You have a new <strong>{contentType}</strong> alert!
+            </Heading>
+          </Section>
+          {filterContentType()}
+        </Container>
+      </Body>
+    </Html>
   );
+};
+
+const styles = {
+  body: {
+    margin: "0",
+    padding: "0",
+    backgroundColor: "#f4f4f4",
+    fontFamily: "Arial, sans-serif",
+  },
+  container: {
+    maxWidth: "600px",
+    margin: "0 auto",
+    backgroundColor: "#e7e7e7",
+  },
+  header: {
+    padding: "20px",
+    textAlign: "center" as const,
+  },
+  profileImage: {
+    borderRadius: "40px",
+    marginBottom: "20px",
+  },
+  title: {
+    margin: "0",
+    fontSize: "24px",
+    color: "#333333",
+    textAlign: "center" as const,
+  },
+  section: {
+    padding: "20px",
+  },
+  text: {
+    textAlign: "center" as const,
+    margin: "20px 0",
+    fontSize: "16px",
+    color: "#333333",
+  },
+  heading: {
+    textAlign: "center" as const,
+    margin: "20px 0",
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "#333333",
+  },
+  contactText: {
+    textAlign: "left" as const,
+    margin: "0",
+    fontSize: "16px",
+    color: "#333333",
+  },
+  buttonContainer: {
+    textAlign: "center" as const,
+    margin: "20px 0",
+  },
+  button: {
+    backgroundColor: "#C8373E",
+    color: "#ffffff",
+    padding: "12px 24px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    borderRadius: "4px",
+  },
 };
 
 export default EmailTemplate;

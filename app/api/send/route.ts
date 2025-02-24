@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     console.log(body, "API CALL");
 
     const { data, error } = await resend.emails.send({
-      from: "Notification <onboarding@resend.dev>",
+      from: `NOTIFICATION <onboarding@resend.dev>`,
       to: [process.env.RESEND_EMAIL as string],
       subject: `New ${body.contentType} form submission`,
       react: EmailTemplate(body),

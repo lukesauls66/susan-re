@@ -55,7 +55,7 @@ const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
       <Body className="m-0 p-0 bg-gray-100 font-sans">
         <Container className="max-w-[600px] mx-auto bg-gray-200">
           <Section className="p-5 text-center">
-            <Heading className="m-0 text-2xl text-gray-800 text-center">
+            <Heading className="m-0 text-2xl text-[#333] text-center">
               Hi Susan, You have a new <strong>{contentType}</strong> alert!
             </Heading>
             {filterContentType()}

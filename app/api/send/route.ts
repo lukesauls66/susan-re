@@ -12,13 +12,12 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
-      to: ["thematthewnicholson@gmail.com"],
+      to: [process.env.RESEND_EMAIL as string],
       subject: `New ${body.contentType} form submission`,
       react: EmailTemplate(body),
     });
 
     if (error) {
-      console.error("Email sending error:", error);
       return NextResponse.json({ error }, { status: 500 });
     }
 
@@ -28,7 +27,6 @@ export async function POST(req: Request) {
       message: "Email sent successfully",
     });
   } catch (error) {
-    console.error("API route error:", error);
     const errorMessage =
       error instanceof Error ? error.message : "Internal Server Error";
     return NextResponse.json({ error: errorMessage }, { status: 500 });

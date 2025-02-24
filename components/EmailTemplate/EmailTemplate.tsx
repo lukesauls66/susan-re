@@ -40,22 +40,24 @@ const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
   const filterContentType = () => {
     if (contentType === "seller") {
       return (
-        <Section style={styles.section}>
-          <Text style={styles.text}>
+        <Section className="p-5">
+          <Text className="text-center my-5 text-base text-gray-800">
             <strong>
               {formData.firstName} {formData.lastName}
             </strong>{" "}
             is looking to sell!
           </Text>
-          <Text style={styles.text}>
+          <Text className="text-center my-5 text-base text-gray-800">
             They have a <strong>{formData.propertyType}</strong> with{" "}
             <strong>{formData.indoorSizeArea}</strong> internally and{" "}
             <strong>{formData.squareFeet}</strong> total. In the{" "}
             <strong>{formData.zipCode}</strong> area and is in{" "}
             <strong>{formData.houseCondition}</strong> condition.
           </Text>
-          <Text style={styles.heading}>Contact</Text>
-          <Text style={styles.contactText}>
+          <Text className="text-center my-5 text-lg font-bold text-gray-800">
+            Contact
+          </Text>
+          <Text className="text-left m-0 text-base text-gray-800">
             {formData.firstName} {formData.lastName}
             <br />
             Phone number: <strong>{formData.phoneNumber}</strong>
@@ -66,22 +68,24 @@ const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
       );
     } else if (contentType === "buyer") {
       return (
-        <Section style={styles.section}>
-          <Text style={styles.text}>
+        <Section className="p-5">
+          <Text className="text-center my-5 text-base text-gray-800">
             <strong>
               {formData.firstName} {formData.lastName}
             </strong>{" "}
             is looking to buy!
           </Text>
-          <Text style={styles.text}>
+          <Text className="text-center my-5 text-base text-gray-800">
             A <strong>{formData.propertyType}</strong> within{" "}
             <strong>{formData.timeFrame}</strong> months in the{" "}
             <strong>{formData.zipCode}</strong> area with{" "}
             <strong>{formData.rooms}</strong> rooms. Ideally they would like
             these options; <strong>{formData.priorities.join(", ")}</strong>
           </Text>
-          <Text style={styles.heading}>Contact</Text>
-          <Text style={styles.contactText}>
+          <Text className="text-center my-5 text-lg font-bold text-gray-800">
+            Contact
+          </Text>
+          <Text className="text-left m-0 text-base text-gray-800">
             {formData.firstName} {formData.lastName}
             <br />
             Phone number: <strong>{formData.phoneNumber}</strong>
@@ -92,31 +96,33 @@ const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
       );
     } else {
       return (
-        <Section style={styles.section}>
-          <Text style={styles.text}>
+        <Section className="p-5">
+          <Text className="text-center my-5 text-base text-gray-800">
             Please verify{" "}
             <strong>
               {formData.firstName} {formData.lastName}
             </strong>
             &apos;s testimonial in your studio
           </Text>
-          <Section style={styles.buttonContainer}>
+          <Section className="text-center my-5">
             <Link
               href={`https://${process.env.DOMAIN}/studio/structure/review`}
-              style={styles.button}
+              className="bg-[#C8373E] text-white px-6 py-3 font-bold rounded no-underline"
             >
               Studio
             </Link>
           </Section>
-          <Text style={styles.text}>
+          <Text className="text-center my-5 text-base text-gray-800">
             Once you verify, it will be displayed on your testimonials page.
           </Text>
-          <Text style={styles.heading}>
+          <Text className="text-center my-5 text-lg font-bold text-gray-800">
             <strong>
               {formData.firstName} {formData.lastName}
             </strong>
           </Text>
-          <Text style={styles.text}>{formData.description}</Text>
+          <Text className="text-center my-5 text-base text-gray-800">
+            {formData.description}
+          </Text>
         </Section>
       );
     }
@@ -125,10 +131,10 @@ const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
   return (
     <Html>
       <Head />
-      <Body style={styles.body}>
-        <Container style={styles.container}>
-          <Section style={styles.header}>
-            <Heading style={styles.title}>
+      <Body className="m-0 p-0 bg-gray-100 font-sans">
+        <Container className="max-w-[600px] mx-auto bg-gray-200">
+          <Section className="p-5 text-center">
+            <Heading className="m-0 text-2xl text-gray-800 text-center">
               Hi Susan, You have a new <strong>{contentType}</strong> alert!
             </Heading>
           </Section>
@@ -137,68 +143,6 @@ const EmailTemplate = ({ contentType, formData }: EmailTemplateProps) => {
       </Body>
     </Html>
   );
-};
-
-const styles = {
-  body: {
-    margin: "0",
-    padding: "0",
-    backgroundColor: "#f4f4f4",
-    fontFamily: "Arial, sans-serif",
-  },
-  container: {
-    maxWidth: "600px",
-    margin: "0 auto",
-    backgroundColor: "#e7e7e7",
-  },
-  header: {
-    padding: "20px",
-    textAlign: "center" as const,
-  },
-  profileImage: {
-    borderRadius: "40px",
-    marginBottom: "20px",
-  },
-  title: {
-    margin: "0",
-    fontSize: "24px",
-    color: "#333333",
-    textAlign: "center" as const,
-  },
-  section: {
-    padding: "20px",
-  },
-  text: {
-    textAlign: "center" as const,
-    margin: "20px 0",
-    fontSize: "16px",
-    color: "#333333",
-  },
-  heading: {
-    textAlign: "center" as const,
-    margin: "20px 0",
-    fontSize: "18px",
-    fontWeight: "bold",
-    color: "#333333",
-  },
-  contactText: {
-    textAlign: "left" as const,
-    margin: "0",
-    fontSize: "16px",
-    color: "#333333",
-  },
-  buttonContainer: {
-    textAlign: "center" as const,
-    margin: "20px 0",
-  },
-  button: {
-    backgroundColor: "#C8373E",
-    color: "#ffffff",
-    padding: "12px 24px",
-    textDecoration: "none",
-    fontWeight: "bold",
-    borderRadius: "4px",
-  },
 };
 
 export default EmailTemplate;

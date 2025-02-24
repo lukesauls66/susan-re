@@ -20,8 +20,8 @@ function CurrentLiving({ setFormData, setFormIndex }: Props) {
 
   const options = [
     { label: "Home Owner", icon: <KeySvg />, display: "A Home Owner" },
-    { label: "Apartment", icon: <AptSvg />, display: "An Apartment" },
-    { label: "House", icon: <HomeSvg />, display: "A House" },
+    { label: "Apartment Renter", icon: <AptSvg />, display: "An Apartment" },
+    { label: "House Renter", icon: <HomeSvg />, display: "A House" },
     { label: "Other", icon: <OtherSvg />, display: "Other" },
   ];
   return (

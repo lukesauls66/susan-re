@@ -1,25 +1,43 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getBlogs, Blog } from "@/sanity/sanity-utils";
-import { urlFor } from "@/lib/image";
+import { getReviews, Review, getBlogs, Blog } from "@/sanity/sanity-utils";
+import ReviewsContent from "./ReviewsContent";
+import BlogsContent from "./BlogsContent";
 
-const BlogPageBody = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+interface PageContentProps {
+  contentType: "reviews" | "blogs";
+}
+
+const PageContent: React.FC<PageContentProps> = ({ contentType }) => {
+  const [content, setContent] = useState<Review[] | Blog[]>([]);
   const [displayCount, setDisplayCount] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const blogData = await getBlogs();
-        setBlogs(blogData);
-      } catch (error) {
-        console.error("Error fetching blogs", error);
-      }
-    };
+    if (contentType === "blogs") {
+      const fetchBlogs = async () => {
+        try {
+          const blogData = await getBlogs();
+          setContent(blogData);
+        } catch (error) {
+          console.error("Error fetching blogs", error);
+        }
+      };
 
-    fetchBlogs();
+      fetchBlogs();
+    } else {
+      const fetchReviews = async () => {
+        try {
+          const reviewsData = await getReviews();
+          setContent(reviewsData);
+        } catch (error) {
+          console.error("Error fetching reviews", error);
+        }
+      };
+
+      fetchReviews();
+    }
   }, []);
 
   useEffect(() => {
@@ -37,9 +55,9 @@ const BlogPageBody = () => {
     return () => window.removeEventListener("resize", updateDisplayCount);
   }, []);
 
-  const totalPages = Math.ceil(blogs.length / displayCount);
+  const totalPages = Math.ceil(content.length / displayCount);
 
-  const displayedBlogs = blogs.slice(
+  const displayedContent = content.slice(
     (currentPage - 1) * displayCount,
     currentPage * displayCount
   );
@@ -58,28 +76,11 @@ const BlogPageBody = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-4 md:gap-6 lg:gap-8 xl:gap-12">
-      {displayedBlogs.map((blog, index) => (
-        <div
-          className={`bg-gray-200 rounded-md p-2 md:p-4 xl:p-6 max-w-[40rem] lg:max-w-[55rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
-          key={blog.title + blog.date}
-        >
-          <div className="flex flex-col gap-4 w-full items-center">
-            <div className="h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] w-full">
-              <img
-                src={urlFor(blog.image).url()}
-                alt={blog.title}
-                className="w-full h-full object-cover rounded-md"
-              />
-            </div>
-            <div className="flex flex-col gap-2 items-start w-full">
-              <h4 className="text-blue font-semibold lg:text-lg">
-                {blog.title}
-              </h4>
-              <p className="text-grey lg:text-lg">{blog.description}</p>
-            </div>
-          </div>
-        </div>
-      ))}
+      {contentType === "reviews" ? (
+        <ReviewsContent displayedContent={displayedContent} />
+      ) : (
+        <BlogsContent displayedContent={displayedContent} />
+      )}
       <div className="flex justify-between w-full mt-4">
         <button
           onClick={handlePreviousPage}
@@ -100,4 +101,4 @@ const BlogPageBody = () => {
   );
 };
 
-export default BlogPageBody;
+export default PageContent;

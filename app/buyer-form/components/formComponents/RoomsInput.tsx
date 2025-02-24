@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
+import { BuyerType } from "@/types/buyerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      rooms: number;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
+  formData: BuyerType;
 };
 
-const RoomsInput = ({ setFormData, setFormIndex }: Props) => {
-  const [selectedRooms, setSelectedRooms] = useState<number | null>(null);
+const RoomsInput = ({ setFormData, setFormIndex, formData }: Props) => {
+  const [selectedRooms, setSelectedRooms] = useState<number>(0);
 
   const handleRoomSelect = (rooms: number) => {
     setSelectedRooms(rooms);
@@ -50,7 +48,11 @@ const RoomsInput = ({ setFormData, setFormIndex }: Props) => {
           );
         })}
       </div>
-      <ContinueButton onClick={() => setFormIndex(4)} />
+      <ContinueButton
+        formData={formData}
+        data={["rooms"]}
+        onClick={() => setFormIndex(4)}
+      />
     </>
   );
 };

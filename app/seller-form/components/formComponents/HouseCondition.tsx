@@ -1,15 +1,13 @@
 import OptionSelectGrid from "@/components/FormComponents/OptionSelectGrid";
 import React from "react";
-import NewlyRenovatedIcon from "../assets/NewlyRenovatedIcon";
-import WellMaintainedIcon from "../assets/WellMaintainedIcon";
-import NeedsRenovationIcon from "../assets/NeedsRenovationIcon";
+import NewlyRenovatedIcon from "../../assets/NewlyRenovatedIcon";
+import WellMaintainedIcon from "../../assets/WellMaintainedIcon";
+import NeedsRenovationIcon from "../../assets/NeedsRenovationIcon";
+import { SellerType } from "@/types/sellerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      houseCondition: string;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
+  formData: SellerType;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface SideBarProps {
   isOpen: boolean;
   toggleSidebar: () => void;
@@ -13,38 +15,43 @@ const SideBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
       >
         <div className="flex flex-col items-center justify-between h-full">
           <div className="flex flex-col items-center gap-10">
-            <a
+            <Link
               href="/buyer-form"
+              onClick={toggleSidebar}
               className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Home Search
-            </a>
-            <a
+            </Link>
+            <Link
               href="/seller-form"
+              onClick={toggleSidebar}
               className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Home Valuation
-            </a>
-            <a
+            </Link>
+            <Link
               href="/testimonials"
+              onClick={toggleSidebar}
               className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Testimonials
-            </a>
-            <a
+            </Link>
+            <Link
               href="/blog"
+              onClick={toggleSidebar}
               className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               Blog
-            </a>
+            </Link>
           </div>
           <div className="flex items-center">
-            <a
+            <Link
               href="/about"
+              onClick={toggleSidebar}
               className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
               About Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ const BlogSection = async () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-[3rem] py-4 px-8">
-      <h3 className="text-red text-xl font-medium underline underline-offset-[.5rem]">
+      <h3 className="text-red text-2xl font-semibold underline underline-offset-[.5rem]">
         Blog
       </h3>
       <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-6 lg:gap-10 xl:gap-12">

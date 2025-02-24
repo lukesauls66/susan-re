@@ -51,3 +51,20 @@ export async function getBlogs(): Promise<Blog[]> {
   const blogs = await client.fetch(BLOG_QUERY, {}, options);
   return blogs;
 }
+export interface AboutMe {
+  name: string;
+  imageUrl: SanityImage;
+  description: string;
+}
+
+export async function getAboutData(): Promise<AboutMe[]> {
+  const options = { next: { revalidate: 30 } };
+
+  const BLOG_QUERY = `*[_type == "aboutMe"]{
+    name,
+    description,
+    "imageUrl": image.asset->url
+  }`;
+  const blogs = await client.fetch(BLOG_QUERY, {}, options);
+  return blogs;
+}

@@ -2,24 +2,18 @@ import { ClientNameInput } from "@/components/FormComponents/ClientNameInput";
 import ConsentInputForm from "@/components/FormComponents/ConsentInputForm";
 import Title from "@/components/FormComponents/sharedComponents/Title";
 import { Button } from "@/components/ui/button";
+import { SellerType } from "@/types/sellerType";
 import React, { useState } from "react";
+import UseEnableButton from "@/app/hooks/UseEnableButton";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      phoneNumber: string;
-      emailAddress: string;
-      consent: boolean;
-      firstName: string;
-      lastName: string;
-    }>
-  >;
-
+  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
+  formData: SellerType;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const BuyerConsentForm = (props: Props) => {
-  const { setFormData } = props;
+const SellerConsentForm = (props: Props) => {
+  const { setFormData, formData } = props;
   const [formValues, setFormValues] = useState({
     phoneNumber: "",
     emailAddress: "",
@@ -68,6 +62,10 @@ const BuyerConsentForm = (props: Props) => {
         formValues={formValues}
       />
       <Button
+        disabled={UseEnableButton({
+          formData,
+          data: ["firstName", "lastName", "consent", "kwConsent"],
+        })}
         type="submit"
         variant={"formButton"}
         className="flex items-center gap-2 w-full"
@@ -78,4 +76,4 @@ const BuyerConsentForm = (props: Props) => {
   );
 };
 
-export default BuyerConsentForm;
+export default SellerConsentForm;

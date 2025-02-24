@@ -8,7 +8,7 @@ const FormHeader = ({ pageTitle }: Props) => {
   return (
     <div className="text-center">
       <div>
-        <h2 className="text-[3rem] font-bold text-center underline decoration-2 underline-offset-8 decoration-blue-600 mb-8">
+        <h2 className="text-[2rem] md:text-[3rem] font-bold text-center underline decoration-2 underline-offset-8 decoration-blue-600 mb-8">
           {pageTitle}
         </h2>
         <div className="flex w-full justify-between items-center">

@@ -12,7 +12,7 @@ type Props = {
 function OptionSelectGrid({ options, onClickHandler, display }: Props) {
   return (
     <div
-      className={`${display ? "flex" : "grid grid-cols-2"} gap-4 justify-stretch text-black`}
+      className={`${display ? "flex flex-col md:flex-row" : "grid grid-cols-2"} gap-4 justify-stretch text-black`}
     >
       {options.map((option) => (
         <button

@@ -1,21 +1,19 @@
 import React from "react";
-import DetachedHouseIcon from "../assets/DetachedHouseIcon";
-import SemiDetachedHouse from "../assets/SemiDetachedHouse";
-import TerraceHouseCorner from "../assets/TerraceHouseCorner";
-import TerraceHouseMiddle from "../assets/TerraceHouseMiddle";
+import DetachedHouseIcon from "../../assets/DetachedHouseIcon";
+import SemiDetachedHouse from "../../assets/SemiDetachedHouse";
+import TerraceHouseCorner from "../../assets/TerraceHouseCorner";
+import TerraceHouseMiddle from "../../assets/TerraceHouseMiddle";
 import Title from "@/components/FormComponents/sharedComponents/Title";
 import OptionSelectGrid from "@/components/FormComponents/OptionSelectGrid";
+import { SellerType } from "@/types/sellerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      propertyType: string;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<SellerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
+  formData: SellerType;
 };
 
-const BuyerHomeSelection = (props: Props) => {
+const SellerHomeSelection = (props: Props) => {
   const { setFormData, setFormIndex } = props;
 
   function onClickHandler(propertyType: string) {
@@ -56,4 +54,4 @@ const BuyerHomeSelection = (props: Props) => {
   );
 };
 
-export default BuyerHomeSelection;
+export default SellerHomeSelection;

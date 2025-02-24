@@ -1,48 +1,32 @@
-import { SellerType } from "@/types/sellerType";
-import { BuyerType } from "@/types/buyerType";
-import { TestimonialType } from "@/types/testimonialType";
 import { Resend } from "resend";
 import EmailTemplate from "@/components/EmailTemplate";
-
-interface BuyerEmailProps {
-  contentType: "buyer";
-  formData: BuyerType;
-}
-
-interface SellerEmailProps {
-  contentType: "seller";
-  formData: SellerType;
-}
-
-interface TestimonialEmailProps {
-  contentType: "testimonial";
-  formData: TestimonialType;
-}
-
-type EmailTemplateProps =
-  | BuyerEmailProps
-  | SellerEmailProps
-  | TestimonialEmailProps;
+import { NextResponse } from "next/server";
+import { EmailTemplateProps } from "@/components/EmailTemplate/EmailTemplate";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
     const body: EmailTemplateProps = await req.json();
+    console.log(body, "API CALL");
 
     const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
-      to: ["Susan@azwarriorre.com"],
+      from: `NOTIFICATION <onboarding@resend.dev>`,
+      to: [process.env.RESEND_EMAIL as string],
       subject: `New ${body.contentType} form submission`,
       react: EmailTemplate(body),
     });
 
     if (error) {
-      return Response.json({ error }, { status: 500 });
+      return NextResponse.json({ error }, { status: 500 });
     }
 
-    return Response.json({ data });
+    return NextResponse.json({
+      success: true,
+      data,
+      message: "Email sent successfully",
+    });
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

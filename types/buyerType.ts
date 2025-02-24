@@ -9,4 +9,5 @@ export interface BuyerType {
   phoneNumber: string;
   emailAddress: string;
   consent: boolean;
+  kwConsent: boolean;
 }

@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
+import { BuyerType } from "@/types/buyerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      priorities: string[];
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
+  formData: BuyerType;
 };
 
 const prioritiesOptions = [
@@ -22,7 +20,7 @@ const prioritiesOptions = [
   "Energy Efficiency",
 ];
 
-function PrioritiesInput({ setFormData, setFormIndex }: Props) {
+function PrioritiesInput({ setFormData, setFormIndex, formData }: Props) {
   const [selectedPriorities, setSelectedPriorities] = useState<string[]>([]);
   const [customPriority, setCustomPriority] = useState("");
 
@@ -108,6 +106,8 @@ function PrioritiesInput({ setFormData, setFormIndex }: Props) {
         )}
       </div>
       <ContinueButton
+        formData={formData}
+        data={["priorities"]}
         onClick={() => selectedPriorities.length > 0 && setFormIndex(5)}
       />
     </>

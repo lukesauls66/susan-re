@@ -2,18 +2,15 @@ import React from "react";
 import Title from "../../../../components/FormComponents/sharedComponents/Title";
 import ContinueButton from "../../../../components/FormComponents/sharedComponents/ContinueButton";
 import { ClientNameInput } from "@/components/FormComponents/ClientNameInput";
+import { BuyerType } from "@/types/buyerType";
 
 type Props = {
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      firstName: string;
-      lastName: string;
-    }>
-  >;
+  setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
+  formData: BuyerType;
 };
 
-const NameInput = ({ setFormData, setFormIndex }: Props) => {
+const NameInput = ({ setFormData, setFormIndex, formData }: Props) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -23,7 +20,11 @@ const NameInput = ({ setFormData, setFormIndex }: Props) => {
     <>
       <Title>What&apos;s your name?</Title>
       <ClientNameInput handleInputChange={handleInputChange} />
-      <ContinueButton onClick={() => setFormIndex(6)} />
+      <ContinueButton
+        formData={formData}
+        data={["firstName", "lastName"]}
+        onClick={() => setFormIndex(6)}
+      />
     </>
   );
 };

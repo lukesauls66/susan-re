@@ -11,10 +11,9 @@ interface SanityImage {
 export interface Review {
   lastName: string;
   clientImage: SanityImage | null;
-  homeImage: SanityImage;
+  homeImage: SanityImage | null;
   date: string;
   description: string;
-  rating: number | null;
   isVerified: boolean;
   firstName: string;
 }
@@ -38,16 +37,12 @@ export async function getReviews(): Promise<Review[]> {
 }
 
 export async function postReview({ formData }: { formData: Review }) {
-  try {
-    const doc = {
-      _type: "review",
-      ...formData,
-    };
+  const doc = {
+    _type: "review",
+    ...formData,
+  };
 
-    await client.create(doc);
-  } catch (error) {
-    console.error("Error posting testimonial", error);
-  }
+  await client.create(doc);
 }
 
 export interface Blog {

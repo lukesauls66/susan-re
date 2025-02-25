@@ -1,3 +1,5 @@
+import ReviewForm from "@/components/ReviewForm";
+
 export default function PostReviews() {
-  return <h1>Review Post</h1>;
+  return <ReviewForm />;
 }

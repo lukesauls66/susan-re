@@ -8,6 +8,21 @@ interface SanityImage {
   };
 }
 
+export async function uploadImage(file: File): Promise<SanityImage> {
+  const asset = await client.assets.upload("image", file, {
+    contentType: file.type,
+    filename: file.name,
+  });
+
+  return {
+    _type: "image",
+    asset: {
+      _type: "reference",
+      _ref: asset._id,
+    },
+  };
+}
+
 export interface Review {
   lastName: string;
   clientImage: SanityImage | null;

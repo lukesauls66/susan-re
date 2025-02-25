@@ -37,6 +37,19 @@ export async function getReviews(): Promise<Review[]> {
   return reviews;
 }
 
+export async function postReview({ formData }: { formData: Review }) {
+  try {
+    const doc = {
+      _type: "review",
+      ...formData,
+    };
+
+    await client.create(doc);
+  } catch (error) {
+    console.error("Error posting testimonial", error);
+  }
+}
+
 export interface Blog {
   title: string;
   image: SanityImage;

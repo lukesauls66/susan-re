@@ -2,7 +2,7 @@
 
 import { postReview, uploadImage } from "@/sanity/sanity-utils";
 import { useState } from "react";
-import { Review } from "@/sanity/sanity-utils";
+import { Review, getReviews } from "@/sanity/sanity-utils";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
@@ -56,15 +56,6 @@ const ReviewForm = () => {
       }
 
       await postReview({ formData: reviewData });
-      //   await fetch("/api/testimonial", {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       formData: reviewData,
-      //     }),
-      //   });
 
       await fetch("/api/send", {
         method: "POST",
@@ -77,6 +68,7 @@ const ReviewForm = () => {
         }),
       });
 
+      getReviews();
       router.push("/");
     } catch (error) {
       console.error("Error making and sending testimonial", error);
@@ -87,10 +79,10 @@ const ReviewForm = () => {
     <div className="flex items-center justify-center pt-6 pb-10 px-4 w-full">
       <form
         onSubmit={(e) => handleSubmit(e)}
-        className="flex flex-col gap-6 items-center bg-blue p-4 rounded-lg"
+        className="flex flex-col gap-6 items-center bg-blue p-4 rounded-lg w-full max-w-[40rem]"
       >
-        <div className="flex gap-4">
-          <label className="flex flex-col gap-2 cursor-pointer text-white">
+        <div className="flex gap-4 w-full">
+          <label className="flex flex-col gap-2 cursor-pointer text-white w-full">
             First Name
             <Input
               type="text"
@@ -104,7 +96,7 @@ const ReviewForm = () => {
               }
             />
           </label>
-          <label className="flex flex-col gap-2 cursor-pointer text-white">
+          <label className="flex flex-col gap-2 cursor-pointer text-white w-full">
             Last Name
             <Input
               type="text"
@@ -119,24 +111,26 @@ const ReviewForm = () => {
             />
           </label>
         </div>
-        <label className="flex flex-col gap-2 cursor-pointer text-white">
-          Upload Client Image
-          <Input
-            type="file"
-            name="clientImage"
-            className="bg-white px-1 cursor-pointer text-black"
-            onChange={handleFileChange}
-          />
-        </label>
-        <label className="flex flex-col gap-2 cursor-pointer text-white">
-          Upload Home Image
-          <Input
-            type="file"
-            name="homeImage"
-            className="bg-white px-1 cursor-pointer text-black"
-            onChange={handleFileChange}
-          />
-        </label>
+        <div className="flex flex-col gap-6 md:flex-row md:gap-4 w-full">
+          <label className="flex flex-col gap-2 cursor-pointer text-white w-full">
+            Upload Client Image
+            <Input
+              type="file"
+              name="clientImage"
+              className="bg-white px-1 cursor-pointer text-black"
+              onChange={handleFileChange}
+            />
+          </label>
+          <label className="flex flex-col gap-2 cursor-pointer text-white w-full">
+            Upload Home Image
+            <Input
+              type="file"
+              name="homeImage"
+              className="bg-white px-1 cursor-pointer text-black"
+              onChange={handleFileChange}
+            />
+          </label>
+        </div>
         <label className="flex flex-col gap-2 cursor-pointer text-white w-full">
           Testimonial
           <textarea

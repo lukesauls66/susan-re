@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -11,9 +12,26 @@ const Header = () => {
           <p className="font-bold text-white text-center sm:text-lg md:text-3xl lg:text-4xl xl:text-5xl">
             Find your dream home in Arizona
           </p>
-          <Button className="font-semibold lg:text-lg xl:text-2xl xl:h-[3rem] xl:w-[14rem]">
-            Let&apos;s Explore
-          </Button>
+          <div className="flex gap-4">
+            <Button className="font-semibold lg:text-lg xl:text-2xl p-[2rem] w-full">
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/seller-form"
+              >
+                Selling Your Property?
+              </Link>
+            </Button>
+            <Button className="font-semibold lg:text-lg xl:text-2xl p-[2rem] w-full">
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/buyer-form"
+              >
+                Looking To Buy?
+              </Link>
+            </Button>
+          </div>
           <img
             src="/images/Logo2.svg"
             alt="Keller Williams Legal Logo"

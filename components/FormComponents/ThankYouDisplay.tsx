@@ -2,7 +2,11 @@ import React from "react";
 import Title from "./sharedComponents/Title";
 import Link from "next/link";
 
-const ThankYouDisplay = () => {
+interface ThankYouDisplayProps {
+  contentType: "seller" | "buyer";
+}
+
+const ThankYouDisplay: React.FC<ThankYouDisplayProps> = ({ contentType }) => {
   return (
     <div className="text-center flex flex-col items-center gap-4">
       <Title>Thank You for Your Interest!</Title>
@@ -17,18 +21,13 @@ const ThankYouDisplay = () => {
           <p className="font-medium mb-2">What happens next?</p>
           <ul className="text-left space-y-2 list-disc list-inside">
             <li>We&apos;ll review your preferences</li>
-            <li>Match you with properties that fit your criteria</li>
+            {contentType === "buyer" ? (
+              <li>Match you with properties that fit your criteria</li>
+            ) : null}
             <li>Contact you to discuss options</li>
             <li>Schedule viewings at your convenience</li>
           </ul>
         </div>
-
-        {/* <p className="text-sm mt-6">
-          If you have any immediate questions, feel free to contact us at{" "}
-          <a href="tel:+1234567890" className="text-[#C8373E] hover:underline">
-            (123) 456-7890
-          </a>
-        </p> */}
       </div>
       <Link
         className="p-4 bg-red text-white hover:bg-red/60 rounded-md"

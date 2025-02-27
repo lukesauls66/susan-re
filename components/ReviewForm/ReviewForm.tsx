@@ -2,10 +2,11 @@
 
 import { postReview, uploadImage } from "@/sanity/sanity-utils";
 import { useState } from "react";
-import { Review, getReviews } from "@/sanity/sanity-utils";
+import { Review } from "@/sanity/sanity-utils";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import useSWR from "swr";
 
 interface FormData extends Omit<Review, "clientImage" | "homeImage" | "date"> {
   clientImage: File | null;
@@ -14,6 +15,7 @@ interface FormData extends Omit<Review, "clientImage" | "homeImage" | "date"> {
 
 const ReviewForm = () => {
   const router = useRouter();
+  const { mutate } = useSWR("reviews");
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -68,7 +70,7 @@ const ReviewForm = () => {
         }),
       });
 
-      getReviews();
+      mutate();
       router.push("/");
     } catch (error) {
       console.error("Error making and sending testimonial", error);

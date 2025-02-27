@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const body: EmailTemplateProps = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: `NOTIFICATION <onboarding@resend.dev>`,
+      from: `NOTIFICATION <notifications@${process.env.RESEND_FROM_EMAIL}>`,
       to: [process.env.RESEND_EMAIL as string],
       subject: `New ${body.contentType} form submission`,
       react: EmailTemplate(body),

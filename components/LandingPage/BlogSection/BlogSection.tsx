@@ -13,7 +13,6 @@ const BlogSection = async () => {
   const blogs = await getBlogs();
 
   const latestThreeBlogs = blogs.slice(0, 3);
-  console.log(latestThreeBlogs);
 
   return (
     <div className="flex flex-col items-center justify-center gap-[3rem] py-4 px-8">

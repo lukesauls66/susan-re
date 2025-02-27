@@ -20,14 +20,14 @@ const SideBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
               onClick={toggleSidebar}
               className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
-              Home Search
+              Buyers
             </Link>
             <Link
               href="/seller-form"
               onClick={toggleSidebar}
               className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
             >
-              Home Valuation
+              Sellers
             </Link>
             <Link
               href="/testimonials"

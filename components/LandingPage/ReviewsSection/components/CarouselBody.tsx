@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import Pfp from "@/components/AssetComponents/Pfp";
 import {
   Carousel,
@@ -9,10 +11,19 @@ import {
 } from "@/components/ui/carousel";
 import { urlFor } from "@/lib/image";
 import { getReviews } from "@/sanity/sanity-utils";
+import useSWR from "swr";
 import React from "react";
 
-const CarouselBody = async () => {
+const fetcher = async () => {
   const reviews = await getReviews();
+  return reviews;
+};
+
+const CarouselBody = () => {
+  const { data: reviews, error } = useSWR("reviews", fetcher);
+
+  if (error) return <div>Failed to load reviews</div>;
+  if (!reviews) return <div>Loading...</div>;
 
   return (
     <Carousel className="flex items-center justify-center">

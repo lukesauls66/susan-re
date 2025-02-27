@@ -106,7 +106,7 @@ const BuyerFormBody = () => {
       case 6:
         return <ConsentForm formData={formData} setFormData={setFormData} />;
       case 7:
-        return <ThankYouDisplay />;
+        return <ThankYouDisplay contentType="buyer" />;
     }
   };
   return (

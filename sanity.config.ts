@@ -25,4 +25,13 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
   ],
+  acl: {
+    rules: [
+      {
+        role: "anonymous",
+        permissions: ["create"],
+        filter: '_type == "testimonial"',
+      },
+    ],
+  },
 });

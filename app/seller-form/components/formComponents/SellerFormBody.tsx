@@ -11,6 +11,7 @@ import { SellerType } from "@/types/sellerType";
 
 const SellerFormBody = () => {
   const [formIndex, setFormIndex] = useState(0);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<SellerType>({
     propertyType: "",
     squareFeet: "",
@@ -24,11 +25,33 @@ const SellerFormBody = () => {
     firstName: "",
     lastName: "",
   });
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(formData);
+
+    try {
+      await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contentType: "seller",
+          formData: formData,
+        }),
+      });
+    } catch (err) {
+      console.error("Form submission error:", err);
+      if (err instanceof Error) {
+        setError(err.message || "An error occurred during form submission");
+      } else {
+        setError("An error occurred during form submission");
+      }
+    }
+
     setFormIndex(6);
   }
+
   const inputDisplay = () => {
     switch (formIndex) {
       case 0:
@@ -80,7 +103,7 @@ const SellerFormBody = () => {
           />
         );
       case 6:
-        return <ThankYouDisplay />;
+        return <ThankYouDisplay contentType="seller" />;
     }
   };
   return (
@@ -89,6 +112,7 @@ const SellerFormBody = () => {
         onSubmit={(e) => handleSubmit(e)}
         className="flex flex-col gap-4 items-center"
       >
+        {error && <div className="error-message">{error}</div>}
         {inputDisplay()}
       </form>
     </>

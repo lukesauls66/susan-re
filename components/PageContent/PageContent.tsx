@@ -38,7 +38,7 @@ const PageContent: React.FC<PageContentProps> = ({ contentType }) => {
 
       fetchReviews();
     }
-  }, []);
+  }, [contentType]);
 
   useEffect(() => {
     const updateDisplayCount = () => {

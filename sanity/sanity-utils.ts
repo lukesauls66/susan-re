@@ -8,13 +8,27 @@ interface SanityImage {
   };
 }
 
+export async function uploadImage(file: File): Promise<SanityImage> {
+  const asset = await client.assets.upload("image", file, {
+    contentType: file.type,
+    filename: file.name,
+  });
+
+  return {
+    _type: "image",
+    asset: {
+      _type: "reference",
+      _ref: asset._id,
+    },
+  };
+}
+
 export interface Review {
   lastName: string;
   clientImage: SanityImage | null;
-  homeImage: SanityImage;
+  homeImage: SanityImage | null;
   date: string;
   description: string;
-  rating: number | null;
   isVerified: boolean;
   firstName: string;
 }
@@ -35,6 +49,15 @@ export async function getReviews(): Promise<Review[]> {
 
   const reviews = await client.fetch(REVIEW_QUERY, {}, options);
   return reviews;
+}
+
+export async function postReview({ formData }: { formData: Review }) {
+  const doc = {
+    _type: "review",
+    ...formData,
+  };
+
+  await client.create(doc);
 }
 
 export interface Blog {

@@ -18,7 +18,7 @@ function TestimonialMessage({ formData }: Props) {
       </Text>
       <Section className="text-center my-5">
         <Link
-          href={`/studio/structure/review`}
+          href={`${process.env.NEXT_PUBLIC_DOMAIN}/studio/structure/review`}
           className="bg-[#C8373E] text-white px-6 py-3 font-bold rounded no-underline"
         >
           Studio

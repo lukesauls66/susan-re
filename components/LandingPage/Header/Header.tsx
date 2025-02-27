@@ -17,24 +17,16 @@ const Header = () => {
             Find your dream home in Arizona
           </p>
           <div className="flex flex-col gap-2 lg:gap-5 w-[10rem] md:w-[13rem] lg:w-full">
-            <Button className="md:h-[3rem] lg:h-[4rem]">
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/seller-form"
-              >
+            <Link target="_blank" rel="noopener noreferrer" href="/seller-form">
+              <Button className="md:h-[3rem] lg:h-[4rem]">
                 Selling Your Property?
-              </Link>
-            </Button>
-            <Button className="md:h-[3rem] lg:h-[4rem]">
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/buyer-form"
-              >
+              </Button>
+            </Link>
+            <Link target="_blank" rel="noopener noreferrer" href="/buyer-form">
+              <Button className="md:h-[3rem] lg:h-[4rem]">
                 Looking To Buy?
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
           <img
             src="/images/Logo2.svg"

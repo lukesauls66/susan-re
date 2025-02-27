@@ -103,7 +103,7 @@ const SellerFormBody = () => {
           />
         );
       case 6:
-        return <ThankYouDisplay />;
+        return <ThankYouDisplay contentType="seller" />;
     }
   };
   return (

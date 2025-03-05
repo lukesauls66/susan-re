@@ -36,7 +36,7 @@ const CarouselBody = () => {
           return (
             <CarouselItem
               className="relative w-[292px] md:w-[350px] h-[429px] pl-0"
-              key={review.firstName + review.lastName}
+              key={review._id}
             >
               <div className="absolute inset-0 bg-white rounded-md" />
               <div className="relative z-10 p-4 flex flex-col justify-around h-full">

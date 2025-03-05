@@ -22,7 +22,7 @@ const BlogSection = async () => {
       <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-6 lg:gap-10 xl:gap-12">
         {latestThreeBlogs.map((blog, index) => (
           <div
-            key={blog.title + blog.date || index}
+            key={blog._id}
             className="flex flex-col gap-4 w-full max-w-[19rem] items-center"
           >
             <div className="w-full rounded-md h-[200px]">

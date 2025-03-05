@@ -20,7 +20,7 @@ const BlogSection = async () => {
         Blog
       </h3>
       <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-6 lg:gap-10 xl:gap-12">
-        {latestThreeBlogs.map((blog, index) => (
+        {latestThreeBlogs.map((blog) => (
           <div
             key={blog._id}
             className="flex flex-col gap-4 w-full max-w-[19rem] items-center"

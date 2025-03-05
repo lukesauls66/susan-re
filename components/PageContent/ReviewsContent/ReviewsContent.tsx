@@ -20,7 +20,7 @@ const ReviewsContent: React.FC<ReviewsContentProps> = ({
         return (
           <div
             className={`bg-gray-200 rounded-md p-2 md:p-4 xl:p-6 max-w-[40rem] lg:max-w-[75rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
-            key={reviewItem.firstName + reviewItem.lastName}
+            key={reviewItem._id}
           >
             <div className="flex items-center justify-between">
               <h3 className="md:text-lg lg:text-xl xl:text-2xl">

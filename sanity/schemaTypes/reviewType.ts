@@ -28,7 +28,6 @@ export const reviewType = defineType({
     defineField({
       name: "homeImage",
       type: "image",
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "date",

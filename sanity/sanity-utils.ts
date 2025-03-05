@@ -24,6 +24,7 @@ export async function uploadImage(file: File): Promise<SanityImage> {
 }
 
 export interface Review {
+  _id: string;
   lastName: string;
   clientImage: SanityImage | null;
   homeImage: SanityImage | null;
@@ -36,7 +37,7 @@ export interface Review {
 export async function getReviews(): Promise<Review[]> {
   const options = { next: { revalidate: 30 } };
 
-  const REVIEW_QUERY = `*[_type == "review"] | order(date desc){
+  const REVIEW_QUERY = `*[_type == "review" && isVerified == true] | order(date desc){
     firstName, 
     lastName, 
     clientImage, 
@@ -61,6 +62,7 @@ export async function postReview({ formData }: { formData: Review }) {
 }
 
 export interface Blog {
+  _id: string;
   title: string;
   image: SanityImage;
   description: string;

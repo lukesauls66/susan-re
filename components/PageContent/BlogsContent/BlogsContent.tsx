@@ -15,7 +15,7 @@ const BlogsContent: React.FC<BlogsContentProps> = ({ displayedContent }) => {
         return (
           <div
             className={`bg-gray-200 rounded-md p-2 md:p-4 xl:p-6 max-w-[40rem] lg:max-w-[55rem] ${index % 2 === 0 ? "md:self-start" : "md:self-end"}`}
-            key={blogItem.title + blogItem.date}
+            key={blogItem._id}
           >
             <div className="flex flex-col gap-4 w-full items-center">
               <div className="h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] w-full">

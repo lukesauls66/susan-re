@@ -30,10 +30,5 @@ export const landingPageType = defineType({
       type: "text",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: "eventsImage",
-      type: "image",
-      validation: (Rule) => Rule.required(),
-    }),
   ],
 });

@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 
-interface SanityImage {
+export interface SanityImage {
   _type: "image";
   asset: {
     _type: "reference";
@@ -80,20 +80,43 @@ export async function getBlogs(): Promise<Blog[]> {
   const blogs = await client.fetch(BLOG_QUERY, {}, options);
   return blogs;
 }
+
 export interface AboutMe {
   name: string;
   imageUrl: SanityImage;
   description: string;
 }
 
-export async function getAboutData(): Promise<AboutMe[]> {
+export async function getAboutData(): Promise<AboutMe> {
   const options = { next: { revalidate: 30 } };
 
-  const BLOG_QUERY = `*[_type == "aboutMe"]{
+  const ABOUT_QUERY = `*[_type == "aboutMe"]{
     name,
     description,
     "imageUrl": image.asset->url
-  }`;
-  const blogs = await client.fetch(BLOG_QUERY, {}, options);
-  return blogs;
+  }[0]`;
+  const about = await client.fetch(ABOUT_QUERY, {}, options);
+  return about;
+}
+
+export interface LandingPageData {
+  headerImage: SanityImage;
+  headerTitle: string;
+  aboutImage: SanityImage;
+  aboutTitle: string;
+  aboutDescription: string;
+}
+
+export async function getLandingPageData(): Promise<LandingPageData> {
+  const options = { next: { revalidate: 30 } };
+
+  const LANDING_QUERY = `*[_type == "landingPage"]{
+    "headerImage": headerImage.asset->url,
+    headerTitle,
+    "aboutImage": aboutImage.asset->url,
+    aboutTitle,
+    aboutDescription
+  }[0]`;
+  const landingPageData = await client.fetch(LANDING_QUERY, {}, options);
+  return landingPageData;
 }

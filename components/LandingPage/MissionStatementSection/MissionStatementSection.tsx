@@ -1,25 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
 import MissionHeader from "./Components/MissionHeader";
 import ReadMoreButton from "./Components/ReadMoreButton";
+import { LandingPageData } from "@/sanity/sanity-utils";
+import { urlFor } from "@/sanity/lib/image";
 
-const MissionStatementSection = async () => {
+interface MissionStatementSectionProps {
+  landingPageData: LandingPageData;
+}
+
+const MissionStatementSection: React.FC<MissionStatementSectionProps> = ({
+  landingPageData,
+}) => {
   return (
     <section className="md:flex gap-4 w-full items-center p-4 md:min-h-[40rem]">
       <div className="hidden md:block w-1/2 h-full">
         <img
           className="object-cover"
-          src="/images/assets/AZ-RE-1.png"
+          src={urlFor(landingPageData.aboutImage).url()}
           alt="Mission Image"
         />
       </div>
       <div className="w-full md:w-[40%] flex flex-col justify-center items-center md:items-start gap-6">
-        <MissionHeader />
-        <p className="text-start">
-          OUR MISSION IS TO FIERCELY PROTECT YOUR REAL ESTATE GOALS WITH EXPERT
-          GUIDANCE, INTEGRITY, AND A RELENTLESS COMMITMENT TO YOUR
-          SUCCESS—MAKING EVERY STEP IN ARIZONA REAL ESTATE SEAMLESS, SECURE, AND
-          EMPOWERING.
-        </p>
+        <MissionHeader landingPageData={landingPageData} />
+        <p className="text-start">{landingPageData.aboutDescription}</p>
         <div className="w-full">
           <ReadMoreButton />
         </div>

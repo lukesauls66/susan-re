@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { getAboutData } from "@/sanity/sanity-utils";
 import React from "react";
-import { urlFor } from "@/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 
 async function AboutPage() {
-  const data = await getAboutData();
-  const aboutData = data[0];
+  const aboutData = await getAboutData();
 
   return (
     <section className="p-8 w-full">

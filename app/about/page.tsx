@@ -4,8 +4,7 @@ import React from "react";
 import { urlFor } from "@/lib/image";
 
 async function AboutPage() {
-  const data = await getAboutData();
-  const aboutData = data[0];
+  const aboutData = await getAboutData();
 
   return (
     <section className="p-8 w-full">

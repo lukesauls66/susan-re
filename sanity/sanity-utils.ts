@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 
-interface SanityImage {
+export interface SanityImage {
   _type: "image";
   asset: {
     _type: "reference";
@@ -94,7 +94,7 @@ export async function getAboutData(): Promise<AboutMe> {
     name,
     description,
     "imageUrl": image.asset->url
-  }`;
+  }[0]`;
   const about = await client.fetch(ABOUT_QUERY, {}, options);
   return about;
 }
@@ -116,7 +116,7 @@ export async function getLandingPageData(): Promise<LandingPageData> {
     aboutImage,
     aboutTitle,
     aboutDescription
-  }`;
+  }[0]`;
   const landingPageData = await client.fetch(LANDING_QUERY, {}, options);
   return landingPageData;
 }

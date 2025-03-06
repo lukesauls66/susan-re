@@ -9,3 +9,11 @@ const MonthlyEvents = ({ eventPageData }: MonthlyEventsProps) => {
 };
 
 export default MonthlyEvents;
+
+// {eventPageData.firstMonthlyEvents && eventPageData.secondMonthlyEvents ? (
+//     <div></div>
+//   ) : eventPageData.firstMonthlyEvents ? (
+//     <div></div>
+//   ) : (
+//     <p>No Monthly Events</p>
+//   )}

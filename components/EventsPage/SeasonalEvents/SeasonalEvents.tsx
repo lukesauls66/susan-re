@@ -8,7 +8,7 @@ interface SeasonalEventsProps {
 const SeasonalEvents = ({ eventPageData }: SeasonalEventsProps) => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1>seasonal</h1>
+      <h1>Seasonal Events</h1>
       {eventPageData.seasonalEvents ? (
         <img
           src={urlFor(eventPageData.seasonalEvents).url()}

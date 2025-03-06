@@ -5,7 +5,7 @@ export default async function Events() {
   const eventPageData: EventPageData = await getEventPageData();
 
   return (
-    <div className="flex items-center justify-center p-4">
+    <div className="flex items-center justify-center p-8">
       {eventPageData ? (
         <EventsPage eventPageData={eventPageData} />
       ) : (

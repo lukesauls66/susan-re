@@ -8,7 +8,7 @@ interface EventPageProps {
 
 const EventsPage: React.FC<EventPageProps> = ({ eventPageData }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="flex flex-col items-center justify-center">
       <SeasonalEvents eventPageData={eventPageData} />
       <MonthlyEvents eventPageData={eventPageData} />
     </div>

@@ -3,7 +3,8 @@ import { blogType } from "./blogType";
 import { reviewType } from "./reviewType";
 import { aboutMeType } from "./aboutMeType";
 import { landingPageType } from "./landingPageType";
+import { eventType } from "./eventType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blogType, reviewType, aboutMeType, landingPageType],
+  types: [blogType, reviewType, aboutMeType, landingPageType, eventType],
 };

@@ -8,7 +8,8 @@ import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
 
-interface FormData extends Omit<Review, "clientImage" | "homeImage" | "date"> {
+interface FormData
+  extends Omit<Review, "_id" | "clientImage" | "homeImage" | "date"> {
   clientImage: File | null;
   homeImage: File | null;
 }
@@ -39,7 +40,7 @@ const ReviewForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const reviewData: Review = {
+    const reviewData: Omit<Review, "_id"> = {
       ...formData,
       clientImage: null,
       homeImage: null,

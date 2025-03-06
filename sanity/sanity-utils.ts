@@ -52,7 +52,11 @@ export async function getReviews(): Promise<Review[]> {
   return reviews;
 }
 
-export async function postReview({ formData }: { formData: Review }) {
+export async function postReview({
+  formData,
+}: {
+  formData: Omit<Review, "_id">;
+}) {
   const doc = {
     _type: "review",
     ...formData,

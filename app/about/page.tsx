@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { getAboutData } from "@/sanity/sanity-utils";
 import React from "react";
-import { urlFor } from "@/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 
 async function AboutPage() {
   const aboutData = await getAboutData();

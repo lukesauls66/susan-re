@@ -20,11 +20,10 @@ export async function getServerSideProps() {
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ landingPageData }) => {
-  console.log("landing page data", landingPageData);
   return (
     <>
       <Header landingPageData={landingPageData} />
-      <MissionStatementSection />
+      <MissionStatementSection landingPageData={landingPageData} />
       <ReviewsSection />
       <BlogSection />
     </>

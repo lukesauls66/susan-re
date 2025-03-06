@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { LandingPageData } from "@/sanity/sanity-utils";
+import { urlFor } from "@/sanity/lib/image";
 
 interface HeaderProps {
   landingPageData: LandingPageData;
@@ -11,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ landingPageData }) => {
     <div className="relative w-full">
       <div className="w-full max-h-[40rem] overflow-hidden">
         <img
-          src="/images/AZsky.webp"
+          src={urlFor(landingPageData.headerImage).url()}
           alt="AZ sky"
           className="w-full h-[18rem] md:h-[25rem] lg:h-[30rem] xl:h-[40rem]"
         />

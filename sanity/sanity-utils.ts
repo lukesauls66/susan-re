@@ -111,9 +111,9 @@ export async function getLandingPageData(): Promise<LandingPageData> {
   const options = { next: { revalidate: 30 } };
 
   const LANDING_QUERY = `*[_type == "landingPage"]{
-    headerImage,
+    "headerImage": headerImage.asset->url,
     headerTitle,
-    aboutImage,
+    "aboutImage": aboutImage.asset->url,
     aboutTitle,
     aboutDescription
   }[0]`;

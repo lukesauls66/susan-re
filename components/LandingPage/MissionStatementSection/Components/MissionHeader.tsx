@@ -1,11 +1,16 @@
 import Pfp from "@/components/AssetComponents/Pfp";
 import React from "react";
+import { LandingPageData } from "@/sanity/sanity-utils";
 
-const MissionHeader = () => {
+interface MissionHeaderProps {
+  landingPageData: LandingPageData;
+}
+
+const MissionHeader: React.FC<MissionHeaderProps> = ({ landingPageData }) => {
   return (
     <div className="flex flex-col md:flex-col-reverse gap-4">
       <h3 className="font-bold text-[40px] leading-none text-blue">
-        “Welcome to Your New Home Sweet Home”
+        {landingPageData.aboutTitle}
       </h3>
       <div className="flex w-full gap-[1rem] justify-center items-center md:items-start md:justify-start md:flex-col-reverse">
         <div>

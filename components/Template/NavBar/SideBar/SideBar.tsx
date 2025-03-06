@@ -44,7 +44,14 @@ const SideBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
               Blog
             </Link>
           </div>
-          <div className="flex items-center">
+          <div className="flex flex-col items-center gap-10">
+            <Link
+              href="/events"
+              onClick={toggleSidebar}
+              className="text-white hover:text-red hover:scale-110 transition-transform duration-200"
+            >
+              Events
+            </Link>
             <Link
               href="/about"
               onClick={toggleSidebar}

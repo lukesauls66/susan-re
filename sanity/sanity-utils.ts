@@ -120,3 +120,21 @@ export async function getLandingPageData(): Promise<LandingPageData> {
   const landingPageData = await client.fetch(LANDING_QUERY, {}, options);
   return landingPageData;
 }
+
+export interface EventPageData {
+  firstMonthlyEvents: SanityImage;
+  secondMonthlyEvents: SanityImage;
+  seasonalEvents: SanityImage;
+}
+
+export async function getEventPageData(): Promise<EventPageData> {
+  const options = { next: { revalidate: 30 } };
+
+  const EVENT_QUERY = `*[_type == "event"]{
+    "firstMonthlyEvents": firstMonthlyEvents.asset->url,
+    "secondMonthlyEvents": secondMonthlyEvents.asset->url,
+    "seasonalEvents": seasonalEvents.asset->url
+  }[0]`;
+  const eventPageData = await client.fetch(EVENT_QUERY, {}, options);
+  return eventPageData;
+}

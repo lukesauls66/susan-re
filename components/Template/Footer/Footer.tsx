@@ -2,6 +2,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -17,9 +18,15 @@ const Footer = () => {
           <div className="bg-white p-1 rounded-full">
             <FaFacebook className="w-7 h-7 lg:w-9 lg:h-9 text-[#1877F2]" />
           </div>
-          <div className="bg-white p-1 rounded-full">
-            <FaTiktok className="w-7 h-7 lg:w-9 lg:h-9 text-black" />
-          </div>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.tiktok.com/@azwarriorrealtor?lang=en"
+          >
+            <div className="bg-white p-1 rounded-full">
+              <FaTiktok className="w-7 h-7 lg:w-9 lg:h-9 text-black" />
+            </div>
+          </Link>
           <div className="bg-white rounded-sm">
             <FaSquareInstagram
               className="w-9 h-9 lg:w-11 lg:h-11"

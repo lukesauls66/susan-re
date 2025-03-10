@@ -15,9 +15,15 @@ const Footer = () => {
           <p>(+1) 602-732-0402</p>
         </div>
         <div className="flex justify-between items-center w-full pt-2">
-          <div className="bg-white p-1 rounded-full">
-            <FaFacebook className="w-7 h-7 lg:w-9 lg:h-9 text-[#1877F2]" />
-          </div>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.facebook.com/profile.php?id=61566563807162"
+          >
+            <div className="bg-white p-1 rounded-full">
+              <FaFacebook className="w-7 h-7 lg:w-9 lg:h-9 text-[#1877F2]" />
+            </div>
+          </Link>
           <Link
             target="_blank"
             rel="noopener noreferrer"

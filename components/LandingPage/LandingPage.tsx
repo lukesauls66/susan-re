@@ -1,6 +1,5 @@
 import Header from "./Header";
 import ReviewsSection from "./ReviewsSection";
-import BlogSection from "./BlogSection";
 import MissionStatementSection from "./MissionStatementSection";
 import { LandingPageData } from "@/sanity/sanity-utils";
 
@@ -14,7 +13,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ landingPageData }) => {
       <Header landingPageData={landingPageData} />
       <MissionStatementSection landingPageData={landingPageData} />
       <ReviewsSection />
-      <BlogSection />
     </>
   );
 };

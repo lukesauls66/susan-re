@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-grey/80 pt-6 pb-8 px-5 flex flex-col md:flex-row-reverse md:justify-around gap-5 justify-center items-center text-white lg:text-xl w-full">
+    <div className="pt-6 pb-8 px-5 lg:px-[4rem] xl:px-[6rem] flex flex-col md:flex-row-reverse md:justify-around lg:justify-between gap-5 justify-center items-center lg:text-xl w-full">
       <div className="flex flex-col items-start gap-2 w-320px">
         <h2 className="font-bold text-lg">Want to reach out?</h2>
         <p>830 S Higley Rd, Gilbert, AZ 85296</p>

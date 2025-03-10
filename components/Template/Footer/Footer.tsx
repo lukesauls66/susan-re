@@ -33,14 +33,20 @@ const Footer = () => {
               <FaTiktok className="w-7 h-7 lg:w-9 lg:h-9 text-black" />
             </div>
           </Link>
-          <div className="bg-white rounded-sm">
-            <FaSquareInstagram
-              className="w-9 h-9 lg:w-11 lg:h-11"
-              style={{
-                fill: "url(#instagramGradient)",
-              }}
-            />
-          </div>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/susanlyman2021/"
+          >
+            <div className="bg-white rounded-sm">
+              <FaSquareInstagram
+                className="w-9 h-9 lg:w-11 lg:h-11"
+                style={{
+                  fill: "url(#instagramGradient)",
+                }}
+              />
+            </div>
+          </Link>
           <svg width="0" height="0">
             <linearGradient
               id="instagramGradient"

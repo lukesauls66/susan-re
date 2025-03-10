@@ -36,11 +36,13 @@ const ReviewsContent: React.FC<ReviewsContentProps> = ({
                 </p>
               </div>
               <div className="h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] w-full">
-                <img
-                  src={urlFor(reviewItem.homeImage).url()}
-                  alt={reviewItem.firstName}
-                  className="w-full h-full object-cover rounded-md"
-                />
+                {reviewItem.homeImage ? (
+                  <img
+                    src={urlFor(reviewItem.homeImage).url()}
+                    alt={reviewItem.firstName}
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                ) : null}
               </div>
             </div>
           </div>

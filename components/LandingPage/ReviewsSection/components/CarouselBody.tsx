@@ -50,11 +50,13 @@ const CarouselBody = () => {
                   <p className="line-clamp-4">{review.description}</p>
                 </div>
                 <div className="h-[200px] w-full">
-                  <img
-                    src={urlFor(review.homeImage).url()}
-                    alt={review.firstName}
-                    className="w-full h-full object-cover rounded-md"
-                  />
+                  {review.homeImage ? (
+                    <img
+                      src={urlFor(review.homeImage).url()}
+                      alt={review.firstName}
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  ) : null}
                 </div>
               </div>
             </CarouselItem>

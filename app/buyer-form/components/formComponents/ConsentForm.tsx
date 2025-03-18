@@ -27,11 +27,11 @@ function ConsentForm({ setFormData, formData }: Props) {
       if (formattedValue.length >= 6) {
         formattedValue = `${formattedValue.slice(0, 3)}-${formattedValue.slice(
           3,
-          6,
+          6
         )}-${formattedValue.slice(6)}`;
       } else if (formattedValue.length >= 3) {
         formattedValue = `${formattedValue.slice(0, 3)}-${formattedValue.slice(
-          3,
+          3
         )}`;
       }
     }
@@ -46,6 +46,9 @@ function ConsentForm({ setFormData, formData }: Props) {
     setFormData((prev) => ({ ...prev, [name]: checked }));
   };
 
+  const isPhoneNumberValid =
+    formValues.phoneNumber.replace(/\D/g, "").length === 10;
+
   return (
     <>
       <Title>How can we contact you?</Title>
@@ -56,10 +59,13 @@ function ConsentForm({ setFormData, formData }: Props) {
       />
 
       <Button
-        disabled={UseEnableButton({
-          formData,
-          data: ["consent", "kwConsent", "emailAddress", "phoneNumber"],
-        })}
+        disabled={
+          !isPhoneNumberValid ||
+          UseEnableButton({
+            formData,
+            data: ["consent", "kwConsent", "emailAddress", "phoneNumber"],
+          })
+        }
         type="submit"
         variant={"formButton"}
         className="flex items-center gap-2 w-full"

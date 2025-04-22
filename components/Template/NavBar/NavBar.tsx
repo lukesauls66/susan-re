@@ -13,9 +13,9 @@ const NavBar = () => {
           />
         </Link>
         <img
-          src="/images/Logo2.svg"
-          alt="Keller Williams Integrity First Realty with logo"
-          className="hidden md:block md:w-[14rem] md:mt-5 lg:w-[17rem] lg:mt-7"
+          src="/images/exp-logo.PNG"
+          alt="EXP Realty with logo"
+          className="hidden md:block md:w-[8rem] lg:w-[11rem]"
         />
       </div>
       <div>

@@ -71,16 +71,16 @@ const Footer = () => {
           </svg>
         </div>
       </div>
-      <div className="flex flex-col items-start gap-4 w-320px">
+      <div className="flex flex-col xl:flex-row gap-4 xl:gap-[5rem] w-320px">
         <img
           src="/images/transparentAZRE.png"
           alt="az warrior logo"
-          className="w-[12rem] h-[5rem] lg:w-[17rem] lg:h-[7rem]"
+          className="w-[12rem] lg:w-[17rem]"
         />
         <img
-          src="/images/Logo2.svg"
-          alt="Keller Williams Integrity First Realty with logo"
-          className="w-[16rem] lg:w-[19rem] bg-white"
+          src="/images/exp-logo.PNG"
+          alt="EXP Realty with logo"
+          className="w-[12rem] lg:w-[15rem] bg-white"
         />
       </div>
     </div>

@@ -15,7 +15,7 @@ const NavBar = () => {
         <img
           src="/images/exp-logo.PNG"
           alt="EXP Realty with logo"
-          className="hidden md:block md:w-[8rem] lg:w-[11rem]"
+          className="hidden md:block md:w-[8rem] lg:w-[9rem]"
         />
       </div>
       <div>

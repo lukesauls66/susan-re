@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ landingPageData }) => {
         />
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center w-full">
-        <div className="flex flex-col items-center justify-between w-[12rem] md:w-[18rem] xl:w-[24rem] h-full py-2 sm:py-4 md:pb-[4rem] md:pt-[5rem] lg:pb-[5rem] lg:pt-[7rem] xl:pb-[8rem] xl:pt-[10rem]">
+        <div className="flex flex-col items-center justify-around md:justify-between w-[12rem] md:w-[18rem] xl:w-[24rem] h-full py-2 sm:py-4 md:pb-[4rem] md:pt-[5rem] lg:pb-[5rem] lg:pt-[7rem] xl:pb-[8rem] xl:pt-[10rem]">
           <p className="font-bold text-white text-center sm:text-lg md:text-3xl lg:text-4xl xl:text-5xl">
             {landingPageData.headerTitle}
           </p>
@@ -45,9 +45,9 @@ const Header: React.FC<HeaderProps> = ({ landingPageData }) => {
             </Link>
           </div>
           <img
-            src="/images/Logo2.svg"
-            alt="Keller Williams Legal Logo"
-            className="bg-white md:hidden"
+            src="/images/exp-logo.PNG"
+            alt="EXP Realty Logo"
+            className="bg-white w-[7rem] md:hidden"
           />
         </div>
       </div>

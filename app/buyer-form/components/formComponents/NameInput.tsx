@@ -8,6 +8,7 @@ type Props = {
   setFormData: React.Dispatch<React.SetStateAction<BuyerType>>;
   setFormIndex: React.Dispatch<React.SetStateAction<number>>;
   formData: BuyerType;
+  testing?: boolean;
 };
 
 const NameInput = ({ setFormData, setFormIndex, formData }: Props) => {
